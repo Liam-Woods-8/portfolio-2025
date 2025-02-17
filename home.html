@@ -18,13 +18,13 @@
             min-height: 100vh; /* Ensure the body takes at least the full viewport height */
         }
         header {
-            background: linear-gradient(135deg, #007bff, #004085);
+            background: linear-gradient(135deg, #7474bf, #348ac7);
             padding: 60px 0; /* Increased padding for a larger header */
         }
         .header-title {
             font-size: 3.5rem; /* Larger font size */
             font-weight: 700; /* Bold font weight */
-            background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Gradient text effect */
+            background: linear-gradient(135deg, #ece9e6, #ffffff); /* Gradient text effect */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
@@ -46,21 +46,48 @@
             object-fit: cover; /* Ensures the image covers the container without distortion */
         }
         .btn-linkedin {
-            background-color: #0077b5;
+            background: linear-gradient(135deg, #7474bf, #348ac7); /* Same gradient as the header */
             color: white;
-            transition: background-color 0.3s ease;
+            border: none;
+            transition: all 0.3s ease; /* Transition for all properties */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
         .btn-linkedin:hover {
-            background-color: #005f8b;
+            background: linear-gradient(135deg, #348ac7, #7474bf); /* Reverse gradient on hover */
+            transform: scale(1.05); /* Slightly scale up */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
         }
         main {
             flex: 1; /* Allows main content to grow and push footer down */
             padding: 40px 0; /* Added padding for better spacing */
         }
         footer {
-            background: linear-gradient(135deg, #007bff, #004085);
+            background: linear-gradient(135deg, #348ac7, #7474bf);
             padding: 20px 0;
             margin-top: auto; /* Pushes the footer to the bottom */
+        }
+
+        /* Navigation Link Hover Effect */
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            color: white !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: white;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
