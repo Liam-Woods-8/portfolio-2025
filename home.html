@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liam Woods - Home</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+        }
+        header {
+            background: linear-gradient(135deg, #007bff, #004085);
+            padding: 60px 0; /* Increased padding for a larger header */
+        }
+        .header-title {
+            font-size: 3.5rem; /* Larger font size */
+            font-weight: 700; /* Bold font weight */
+            background: linear-gradient(135deg, #ffffff, #e0e0e0); /* Gradient text effect */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .profile-img-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-img {
+            width: 100%; /* Ensure the image fits the container */
+            height: 100%; /* Ensure the image fits the container */
+            object-fit: cover; /* Ensures the image covers the container without distortion */
+        }
+        .btn-linkedin {
+            background-color: #0077b5;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-linkedin:hover {
+            background-color: #005f8b;
+        }
+        main {
+            flex: 1; /* Allows main content to grow and push footer down */
+            padding: 40px 0; /* Added padding for better spacing */
+        }
+        footer {
+            background: linear-gradient(135deg, #007bff, #004085);
+            padding: 20px 0;
+            margin-top: auto; /* Pushes the footer to the bottom */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="text-white text-center">
+        <div class="container">
+            <h1 class="header-title">Liam Woods</h1>
+            <nav class="nav justify-content-center mt-4">
+                <a href="home.html" class="nav-link text-white mx-2">Home</a>
+                <a href="skills.html" class="nav-link text-white mx-2">Skills</a>
+                <a href="leadership.html" class="nav-link text-white mx-2">Leadership</a>
+                <a href="contact.html" class="nav-link text-white mx-2">Contact</a>
+                <a href="about.html" class="nav-link text-white mx-2">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <section class="text-center">
+            <div class="profile-img-container">
+                <img src="headshot.png" alt="Liam Woods Headshot" class="profile-img">
+            </div>
+            <h2 class="h1 mb-4">Syracuse University School of Information Studies</h2>
+            <p class="lead mb-4">
+                I’m passionate about exploring the boundaries of web design and development, blending creativity with technical expertise to craft seamless digital experiences. With a mix of technical know-how, a creative eye, and solid communication skills, I focus on delivering results that truly meet my clients' needs. Currently, I’m studying Web Design and Management at Syracuse University’s School of Information Studies, and I bring that same dedication to excellence to every project I take on.
+            </p>
+            <a href="https://www.linkedin.com/in/liamantoniowoods" class="btn btn-linkedin btn-lg" target="_blank">LinkedIn Profile</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-white text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2024 Liam Woods</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
