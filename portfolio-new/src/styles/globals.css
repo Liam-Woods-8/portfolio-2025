@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Sao Torpes';
+  src: url('/fonts/SaoTorpes.woff2') format('woff2'),
+       url('/fonts/SaoTorpes.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Romana Light';
+  src: url('/fonts/Romana-Light.woff2') format('woff2'),
+       url('/fonts/Romana-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Romana Bold';
+  src: url('/fonts/Romana-Bold.woff2') format('woff2'),
+       url('/fonts/Romana-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --deep-blue: #002770;
+  --royal-blue: #3700A5;
+  --yellow: #FDD438;
+  --forest-green: #0E5E08;
+  --background: #fcfae8;
+}
+
+body {
+  @apply bg-background text-[#1a1a1a] font-romana-light;
+}
+
+/* Lock body scroll when mobile menu is open */
+body.mobile-menu-open {
+  overflow: hidden;
+}
+
+/* Show mobile menu when open */
+body.mobile-menu-open .mobile-menu {
+  transform: translateX(0);
+}
+
+/* Animate mobile menu button */
+body.mobile-menu-open .mobile-menu-button div:first-child {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+body.mobile-menu-open .mobile-menu-button div:nth-child(2) {
+  opacity: 0;
+}
+
+body.mobile-menu-open .mobile-menu-button div:last-child {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sao-torpes;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-deep-blue text-white px-6 py-2 rounded-lg transition-all hover:bg-royal-blue;
+  }
+  
+  .section-title {
+    @apply font-sao-torpes text-4xl md:text-5xl mb-8 text-deep-blue;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-deep-blue to-royal-blue;
+  }
+
+  /* Latin American inspired decorative elements */
+  .geometric-pattern {
+    @apply relative overflow-hidden;
+  }
+
+  .geometric-pattern::before {
+    content: '';
+    @apply absolute inset-0 opacity-5 pointer-events-none;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--yellow) 0,
+      var(--yellow) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+
+  .accent-border {
+    @apply relative;
+  }
+
+  .accent-border::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-16 bg-yellow rounded-full;
+  }
+} 
