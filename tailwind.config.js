@@ -7,17 +7,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        white: '#ffffff',
-        background: 'var(--background)',
-        'deep-blue': 'var(--deep-blue)',
-        'royal-blue': 'var(--royal-blue)',
-        yellow: 'var(--yellow)',
-        'forest-green': 'var(--forest-green)',
+        'golden': '#F0A202',
+        'orange': '#F18805',
+        'coral': '#D95D39',
+        'charcoal': '#262626',
+        'sky-blue': '#9AC4F8',
+        'background': '#FFFFFF',
       },
       fontFamily: {
         'sao-torpes': ['Sao Torpes', 'sans-serif'],
-        'romana-light': ['Romana Light', 'sans-serif'],
-        'romana-bold': ['Romana Bold', 'sans-serif'],
+        'romana-light': ['Romana Light', 'serif'],
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        }
       },
     },
   },
