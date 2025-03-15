@@ -9,12 +9,10 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex-1 text-center md:text-left">
               <h1 className="font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-6">
-                <span className="gradient-text">Hola!</span>
-                <br />
                 I&apos;m Liam Woods
               </h1>
               <p className="font-romana-light text-xl md:text-2xl text-charcoal/80 mb-8">
-                Full Stack Developer crafting vibrant digital experiences with a Latin American flair
+                Full Stack Developer crafting vibrant digital experiences
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <button className="btn-primary">View My Work</button>
