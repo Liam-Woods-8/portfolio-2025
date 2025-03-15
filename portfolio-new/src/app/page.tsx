@@ -46,7 +46,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <p className="text-lg mb-6 font-['Romana_Light']">
-                I'm a full stack developer passionate about creating modern, efficient web applications.
+                I&apos;m a full stack developer passionate about creating modern, efficient web applications.
                 With expertise in both front-end and back-end development, I bring ideas to life through
                 clean code and intuitive design.
               </p>
@@ -69,7 +69,7 @@ export default function Home() {
           <h2 className="section-title">Let's Connect</h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-lg mb-8 font-['Romana_Light']">
-              Interested in working together? Let's discuss your project.
+              Interested in working together? Let&apos;s discuss your project.
             </p>
             {/* Contact form will go here */}
           </div>
