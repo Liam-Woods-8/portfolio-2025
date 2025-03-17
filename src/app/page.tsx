@@ -4,6 +4,7 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 import ContactForm from './components/ContactForm'
+import SocialIcon from './components/SocialIcon'
 
 const ImagePlaceholder = dynamic(() => import('./components/ImagePlaceholder'), {
   ssr: false
@@ -28,6 +29,12 @@ const projects = [
     technologies: ["Python", "Django", "PostgreSQL"],
     link: "/projects/3"
   }
+];
+
+const SOCIAL_LINKS = [
+  { type: 'github' as const, href: '/github' },
+  { type: 'linkedin' as const, href: '/linkedin' },
+  { type: 'email' as const, href: 'mailto:your@email.com' }
 ];
 
 export default function Home() {
@@ -186,20 +193,14 @@ export default function Home() {
       <footer className="py-12 border-t border-purple/20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-lg text-text/90">© 2024 Liam Woods</p>
-            <div className="flex gap-12">
-              {[
-                { href: "/github", text: "GitHub" },
-                { href: "/linkedin", text: "LinkedIn" },
-                { href: "mailto:your@email.com", text: "Email" }
-              ].map((link, index) => (
-                <Link 
-                  key={index}
-                  href={link.href} 
-                  className="hover-reveal text-lg text-text/90"
-                >
-                  {link.text}
-                </Link>
+            <p className="text-lg text-text/90">© {new Date().getFullYear()} Liam Woods</p>
+            <div className="flex items-center gap-6">
+              {SOCIAL_LINKS.map((link) => (
+                <SocialIcon 
+                  key={link.type}
+                  type={link.type}
+                  href={link.href}
+                />
               ))}
             </div>
           </div>

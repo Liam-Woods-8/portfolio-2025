@@ -1,19 +1,73 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+interface FormField {
+  id: keyof FormData;
+  label: string;
+  type: string;
+  rows?: number;
+}
+
+const FORM_FIELDS: FormField[] = [
+  { id: 'name', label: 'Name', type: 'text' },
+  { id: 'email', label: 'Email', type: 'email' },
+  { id: 'message', label: 'Message', type: 'textarea', rows: 5 }
+];
 
 export default function ContactForm() {
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<FormData>({
     name: '',
     email: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission
     console.log(formState);
   };
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormState(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const renderFormField = (field: FormField) => (
+    <div key={field.id} className="form-group">
+      <label htmlFor={field.id} className="form-label">
+        {field.label}
+      </label>
+      {field.type === 'textarea' ? (
+        <textarea
+          id={field.id}
+          rows={field.rows}
+          className="form-input resize-none"
+          value={formState[field.id]}
+          onChange={handleInputChange}
+          required
+        />
+      ) : (
+        <input
+          type={field.type}
+          id={field.id}
+          className="form-input"
+          value={formState[field.id]}
+          onChange={handleInputChange}
+          required
+        />
+      )}
+    </div>
+  );
 
   return (
     <div className="relative">
@@ -22,48 +76,8 @@ export default function ContactForm() {
       <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-mid-blue/20 rounded-full blur-xl"></div>
       
       <form onSubmit={handleSubmit} className="relative z-10">
-        <div className="form-group">
-          <label htmlFor="name" className="form-label">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            className="form-input"
-            value={formState.name}
-            onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            className="form-input"
-            value={formState.email}
-            onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            required
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="message" className="form-label">
-            Message
-          </label>
-          <textarea
-            id="message"
-            rows={5}
-            className="form-input resize-none"
-            value={formState.message}
-            onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-            required
-          ></textarea>
-        </div>
-
+        {FORM_FIELDS.map(renderFormField)}
+        
         <button type="submit" className="form-submit">
           Send Message
         </button>
