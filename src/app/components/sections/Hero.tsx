@@ -9,12 +9,12 @@ export default function Hero() {
             Liam Woods
           </h1>
           <div className="mt-16">
-            <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-text/90 max-w-2xl">
+            <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-text font-bold max-w-2xl">
               Full Stack Developer crafting exceptional digital experiences through innovative code and creative design solutions
             </p>
             <div className="flex gap-8">
-              <a href="#projects" className="btn-primary">View Work</a>
-              <a href="#contact" className="btn-secondary">Contact</a>
+              <a href="#projects" className="btn-primary text-lg font-bold">View Work</a>
+              <a href="#contact" className="btn-secondary text-lg font-bold">Contact</a>
             </div>
           </div>
         </div>

@@ -54,7 +54,7 @@ const Navigation = () => {
                 <Link
                   key={index}
                   href={link.href}
-                  className="text-forest hover:text-sage transition-colors"
+                  className="font-bold text-forest hover:text-sage transition-colors"
                 >
                   {link.text}
                 </Link>
@@ -77,7 +77,7 @@ const Navigation = () => {
                 ? 'bg-forest scale-125'
                 : 'bg-sage opacity-50 hover:opacity-100'
             }`} />
-            <span className="absolute right-full mr-4 py-1 px-2 text-sm font-ramona text-forest opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 capitalize">
+            <span className="absolute right-full mr-4 py-1 px-2 text-sm font-bold text-forest opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 capitalize">
               {section}
             </span>
           </Link>
@@ -102,7 +102,7 @@ const Navigation = () => {
               <Link
                 key={item}
                 href={`/#${item.toLowerCase()}`}
-                className={`font-sao-torpes text-3xl ${
+                className={`font-bold text-3xl ${
                   activeSection === item.toLowerCase()
                     ? 'text-forest'
                     : 'text-sage'
