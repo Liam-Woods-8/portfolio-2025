@@ -4,16 +4,6 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-start px-4 md:px-8 lg:px-16 relative overflow-hidden">
       <div className="geometric-pattern absolute inset-0 z-0"></div>
-      <div className="fixed top-8 left-8 z-50">
-        <a 
-          href="https://www.linkedin.com/in/liamantoniowoods" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-2xl font-sao-torpes hover:opacity-80 transition-opacity"
-        >
-          LW
-        </a>
-      </div>
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col items-start">
           <div className="flex flex-col items-start mb-8">
