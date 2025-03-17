@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import "../styles/globals.css";
-import Navigation from "../components/Navigation";
+import './globals.css'
+import type { Metadata } from 'next'
+import Navigation from '../../components/Navigation'
 
 export const metadata: Metadata = {
-  title: "Liam Woods - Full Stack Developer",
-  description: "Portfolio website showcasing my work as a Full Stack Developer",
-};
+  title: 'Liam Woods | Portfolio',
+  description: 'Full Stack Developer crafting exceptional digital experiences',
+}
 
 export default function RootLayout({
   children,
