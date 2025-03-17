@@ -46,11 +46,11 @@
 
 @layer components {
   .text-gradient {
-    @apply bg-gradient-to-r from-forest to-sage bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#99BC85] to-[#E4EFE7] bg-clip-text text-transparent;
   }
 
   .geometric-pattern {
-    @apply relative bg-gradient-to-br from-forest/20 via-sage/20 to-cream/20;
+    @apply relative bg-gradient-to-br from-[#99BC85]/20 via-[#E4EFE7]/20 to-[#FAF1E6]/20;
   }
 
   .section-title {
