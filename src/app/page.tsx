@@ -1,4 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
+import ContactForm from './components/ContactForm'
+
+const ImagePlaceholder = dynamic(() => import('./components/ImagePlaceholder'), {
+  ssr: false
+});
 
 export default function Home() {
   return (
@@ -8,27 +15,28 @@ export default function Home() {
         <div className="container mx-auto px-4 py-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex-1 text-center md:text-left">
-              <h1 className="font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-6">
+              <div className="mb-4 inline-block hover-shine">
+                <span className="text-coral font-romana-light text-xl">Full Stack Developer</span>
+              </div>
+              <h1 className="font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-6 text-shadow hover-shine">
                 I&apos;m Liam Woods
               </h1>
-              <p className="font-romana-light text-xl md:text-2xl text-charcoal/80 mb-8">
-                Full Stack Developer crafting vibrant digital experiences
+              <p className="font-romana-light text-xl md:text-2xl text-charcoal/80 mb-8 max-w-2xl">
+                Crafting exceptional digital experiences through innovative code and creative design solutions
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <button className="btn-primary">View My Work</button>
-                <button className="btn-secondary">Get in Touch</button>
+                <a href="#projects" className="btn-primary">View My Work</a>
+                <a href="#contact" className="btn-secondary">Get in Touch</a>
               </div>
             </div>
             <div className="flex-1 relative">
               <div className="w-full aspect-square relative animate-float">
-                <div className="absolute inset-0 bg-gradient-to-br from-golden/20 to-coral/20 rounded-full -z-10 transform scale-95 blur-xl"></div>
-                <Image
-                  src="/profile-image.jpg"
-                  alt="Liam Woods"
+                <div className="absolute inset-0 bg-gradient-to-br from-golden/20 via-coral/20 to-sky-blue/20 rounded-full -z-10 transform scale-95 blur-xl"></div>
+                <ImagePlaceholder
                   width={500}
                   height={500}
-                  priority
-                  className="rounded-full border-4 border-white shadow-xl object-cover"
+                  text="Profile"
+                  className="rounded-full border-4 border-white shadow-xl"
                 />
               </div>
             </div>
@@ -36,59 +44,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section className="py-20 bg-charcoal/5">
+      {/* Featured Projects */}
+      <section id="projects" className="py-32 bg-gradient-to-b from-white to-golden/5">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Featured Projects</h2>
+          <h2 className="section-title text-center mb-24">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3].map((project) => (
-              <div key={project} className="card">
-                <div className="aspect-video bg-golden/10 rounded-lg mb-4"></div>
-                <h3 className="font-sao-torpes text-2xl mb-2">Project Title</h3>
-                <p className="text-charcoal/70 mb-4">
-                  A brief description of the project and the technologies used.
-                </p>
-                <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-golden/10 text-golden rounded-full text-sm">React</span>
-                  <span className="px-3 py-1 bg-coral/10 text-coral rounded-full text-sm">Node.js</span>
+            {projects.map((project, index) => (
+              <article key={index} className="card group">
+                <div className="aspect-video bg-gradient-to-br from-golden/10 to-coral/10 rounded-lg mb-6 overflow-hidden">
+                  <ImagePlaceholder
+                    width={600}
+                    height={400}
+                    text={project.title}
+                    className="w-full h-full transform group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              </div>
+                <h3 className="font-sao-torpes text-2xl mb-3">{project.title}</h3>
+                <p className="text-charcoal/70 mb-6">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="px-3 py-1 bg-golden/10 text-golden rounded-full text-sm">{tech}</span>
+                  ))}
+                </div>
+                <Link href={project.link} className="text-coral hover:text-orange transition-colors">
+                  View Project →
+                </Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-20">
+      {/* Skills & Experience */}
+      <section className="py-32">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex flex-col md:flex-row items-start gap-16">
             <div className="flex-1">
-              <h2 className="section-title">About Me</h2>
-              <p className="text-lg mb-6 text-charcoal/80">
-                I&apos;m a passionate developer who brings together technical expertise and creative design. 
-                My approach combines modern web technologies with vibrant Latin American-inspired aesthetics 
-                to create unique and engaging digital experiences.
+              <h2 className="section-title">Skills & Experience</h2>
+              <p className="text-lg mb-12 text-charcoal/80 max-w-2xl">
+                With a passion for creating seamless user experiences and robust backend systems,
+                I bring ideas to life through clean, efficient code and modern design principles.
               </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 bg-golden/10 rounded-lg">
-                  <h3 className="font-sao-torpes text-xl mb-2">Frontend</h3>
-                  <p>React, Next.js, Tailwind CSS</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="glass-effect p-6 rounded-xl hover:shadow-lg transition-all duration-300">
+                  <h3 className="font-sao-torpes text-2xl mb-4 text-coral">Frontend</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-golden rounded-full"></span>
+                      React & Next.js
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-golden rounded-full"></span>
+                      TypeScript
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-golden rounded-full"></span>
+                      Tailwind CSS
+                    </li>
+                  </ul>
                 </div>
-                <div className="p-4 bg-coral/10 rounded-lg">
-                  <h3 className="font-sao-torpes text-xl mb-2">Backend</h3>
-                  <p>Node.js, Python, SQL</p>
+                <div className="glass-effect p-6 rounded-xl hover:shadow-lg transition-all duration-300">
+                  <h3 className="font-sao-torpes text-2xl mb-4 text-coral">Backend</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-golden rounded-full"></span>
+                      Node.js
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-golden rounded-full"></span>
+                      Python
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-golden rounded-full"></span>
+                      SQL & NoSQL
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
             <div className="flex-1 relative">
               <div className="aspect-square relative">
-                <div className="absolute inset-0 bg-gradient-to-tr from-sky-blue/20 to-golden/20 rounded-2xl -z-10 transform rotate-6"></div>
-                <Image
-                  src="/about-image.jpg"
-                  alt="Modern workspace setup"
+                <div className="absolute inset-0 bg-gradient-to-tr from-sky-blue/20 via-golden/20 to-coral/20 rounded-2xl -z-10 transform rotate-6"></div>
+                <ImagePlaceholder
                   width={500}
                   height={500}
-                  className="rounded-2xl shadow-xl transform -rotate-6 object-cover"
+                  text="Workspace"
+                  className="rounded-2xl shadow-xl transform -rotate-6"
                 />
               </div>
             </div>
@@ -97,41 +138,58 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-charcoal/5">
+      <section id="contact" className="py-32 bg-gradient-to-b from-golden/5 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="section-title">Let&apos;s Connect</h2>
-          <div className="max-w-2xl mx-auto">
-            <form className="space-y-6">
-              <div>
-                <label className="block text-charcoal mb-2">Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 rounded-lg border border-charcoal/20 focus:outline-none focus:border-coral"
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="block text-charcoal mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-3 rounded-lg border border-charcoal/20 focus:outline-none focus:border-coral"
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label className="block text-charcoal mb-2">Message</label>
-                <textarea
-                  className="w-full px-4 py-3 rounded-lg border border-charcoal/20 focus:outline-none focus:border-coral h-32"
-                  placeholder="Your message"
-                ></textarea>
-              </div>
-              <button type="submit" className="btn-primary w-full">
-                Send Message
-              </button>
-            </form>
+          <h2 className="section-title text-center">Let&apos;s Connect</h2>
+          <div className="max-w-2xl mx-auto glass-effect p-8 rounded-2xl mt-16">
+            <ContactForm />
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="py-12 border-t border-charcoal/10">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-charcoal/60">© 2024 Liam Woods. All rights reserved.</p>
+            <div className="flex gap-6">
+              <Link href="https://github.com/yourusername" className="text-charcoal hover:text-coral transition-colors">
+                GitHub
+              </Link>
+              <Link href="https://linkedin.com/in/yourusername" className="text-charcoal hover:text-coral transition-colors">
+                LinkedIn
+              </Link>
+              <Link href="mailto:your@email.com" className="text-charcoal hover:text-coral transition-colors">
+                Email
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
   )
 }
+
+const projects = [
+  {
+    title: "Project One",
+    description: "A brief description of the project and the technologies used.",
+    image: "/project1.jpg",
+    technologies: ["React", "Node.js", "MongoDB"],
+    link: "/projects/1"
+  },
+  {
+    title: "Project Two",
+    description: "A brief description of the project and the technologies used.",
+    image: "/project2.jpg",
+    technologies: ["Next.js", "TypeScript", "Tailwind"],
+    link: "/projects/2"
+  },
+  {
+    title: "Project Three",
+    description: "A brief description of the project and the technologies used.",
+    image: "/project3.jpg",
+    technologies: ["Python", "Django", "PostgreSQL"],
+    link: "/projects/3"
+  }
+];
