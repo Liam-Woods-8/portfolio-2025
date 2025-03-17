@@ -6,7 +6,7 @@ export default function Hero() {
       <div className="geometric-pattern absolute inset-0 z-0"></div>
       <div className="fixed top-8 left-8 z-50">
         <a 
-          href="https://www.linkedin.com/in/liam-woods-8/" 
+          href="https://www.linkedin.com/in/liamantoniowoods" 
           target="_blank" 
           rel="noopener noreferrer"
           className="text-2xl font-sao-torpes hover:opacity-80 transition-opacity"

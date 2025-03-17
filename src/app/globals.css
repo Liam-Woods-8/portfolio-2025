@@ -119,7 +119,7 @@
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-sao-torpes mb-24;
+    @apply text-4xl md:text-5xl font-sao-torpes mb-24 text-gradient;
   }
 
   .geometric-pattern {
@@ -170,6 +170,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent;
   }
 
   .social-icon {

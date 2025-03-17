@@ -8,10 +8,10 @@ export default function Footer() {
     <footer className="py-8 bg-base border-t border-sage/30">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-text/80 mb-4 md:mb-0">
+          <p className="text-sm text-sage/70 mb-4 md:mb-0">
             © {new Date().getFullYear()} Liam Woods. All rights reserved.
           </p>
-          <div className="flex gap-6">
+          <div className="flex space-x-6">
             <a
               href="https://github.com/Liam-Woods-8"
               target="_blank"
@@ -23,7 +23,7 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/liam-woods-8/"
+              href="https://www.linkedin.com/in/liamantoniowoods"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon"
