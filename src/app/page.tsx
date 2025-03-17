@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-screen font-romana-light">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center">
+      <section className="min-h-screen flex items-center justify-center geometric-pattern">
         <div className="container mx-auto px-4 py-20">
           <div className="max-w-6xl mx-auto">
             <h1 className="font-sao-torpes text-8xl md:text-9xl lg:text-[12rem] mb-8 text-gradient">
@@ -19,7 +19,7 @@ export default function Home() {
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-16">
               <div>
-                <p className="text-2xl md:text-3xl leading-relaxed mb-8">
+                <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-[#2c3e50]/80">
                   Full Stack Developer crafting exceptional digital experiences through innovative code and creative design solutions
                 </p>
                 <div className="flex gap-8">
@@ -28,6 +28,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#C5BAFF]/20 via-[#C4D9FF]/20 to-[#E8F9FF]/20 rounded-2xl -z-10 blur-xl"></div>
                 <ImagePlaceholder
                   width={500}
                   height={500}
@@ -41,7 +42,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects */}
-      <section id="projects" className="py-32">
+      <section id="projects" className="py-32 bg-gradient-to-b from-[#FBFBFB] via-[#E8F9FF]/30 to-[#FBFBFB]">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Projects</h2>
           <div className="grid grid-cols-1 gap-16">
@@ -49,11 +50,11 @@ export default function Home() {
               <article key={index} className="card group">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                   <div className="order-2 md:order-1">
-                    <h3 className="font-sao-torpes text-4xl mb-6">{project.title}</h3>
-                    <p className="text-lg mb-6 leading-relaxed">{project.description}</p>
+                    <h3 className="font-sao-torpes text-4xl mb-6 text-gradient">{project.title}</h3>
+                    <p className="text-lg mb-6 leading-relaxed text-[#2c3e50]/80">{project.description}</p>
                     <div className="flex flex-wrap gap-3 mb-8">
                       {project.technologies.map((tech, i) => (
-                        <span key={i} className="px-4 py-2 bg-accent text-text text-sm">{tech}</span>
+                        <span key={i} className="px-4 py-2 bg-[#E8F9FF] text-[#2c3e50] text-sm">{tech}</span>
                       ))}
                     </div>
                     <Link href={project.link} className="hover-reveal inline-block text-lg">
@@ -61,12 +62,15 @@ export default function Home() {
                     </Link>
                   </div>
                   <div className="order-1 md:order-2">
-                    <ImagePlaceholder
-                      width={600}
-                      height={400}
-                      text={project.title}
-                      className="w-full aspect-video object-cover"
-                    />
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-[#C5BAFF]/10 to-[#C4D9FF]/10 -z-10"></div>
+                      <ImagePlaceholder
+                        width={600}
+                        height={400}
+                        text={project.title}
+                        className="w-full aspect-video object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
               </article>
@@ -76,29 +80,29 @@ export default function Home() {
       </section>
 
       {/* Skills & Experience */}
-      <section className="py-32">
+      <section className="py-32 bg-gradient-to-b from-[#FBFBFB] via-[#C4D9FF]/10 to-[#FBFBFB]">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="glass-effect p-8">
-              <h3 className="font-sao-torpes text-3xl mb-6">Frontend</h3>
-              <ul className="space-y-4 text-lg">
+              <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">Frontend</h3>
+              <ul className="space-y-4 text-lg text-[#2c3e50]/80">
                 <li>React & Next.js</li>
                 <li>TypeScript</li>
                 <li>Tailwind CSS</li>
               </ul>
             </div>
             <div className="glass-effect p-8">
-              <h3 className="font-sao-torpes text-3xl mb-6">Backend</h3>
-              <ul className="space-y-4 text-lg">
+              <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">Backend</h3>
+              <ul className="space-y-4 text-lg text-[#2c3e50]/80">
                 <li>Node.js</li>
                 <li>Python</li>
                 <li>SQL & NoSQL</li>
               </ul>
             </div>
             <div className="glass-effect p-8">
-              <h3 className="font-sao-torpes text-3xl mb-6">Tools</h3>
-              <ul className="space-y-4 text-lg">
+              <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">Tools</h3>
+              <ul className="space-y-4 text-lg text-[#2c3e50]/80">
                 <li>Git</li>
                 <li>Docker</li>
                 <li>AWS</li>
@@ -109,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32">
+      <section id="contact" className="py-32 bg-gradient-to-b from-[#FBFBFB] via-[#E8F9FF]/20 to-[#FBFBFB]">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Contact</h2>
           <div className="max-w-2xl mx-auto glass-effect p-12">
@@ -119,18 +123,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-primary/20">
+      <footer className="py-12 border-t border-[#C5BAFF]/20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-lg">© 2024 Liam Woods</p>
+            <p className="text-lg text-[#2c3e50]/80">© 2024 Liam Woods</p>
             <div className="flex gap-12">
-              <Link href="https://github.com/yourusername" className="hover-reveal text-lg">
+              <Link href="https://github.com/yourusername" className="hover-reveal text-lg text-[#2c3e50]/80">
                 GitHub
               </Link>
-              <Link href="https://linkedin.com/in/yourusername" className="hover-reveal text-lg">
+              <Link href="https://linkedin.com/in/yourusername" className="hover-reveal text-lg text-[#2c3e50]/80">
                 LinkedIn
               </Link>
-              <Link href="mailto:your@email.com" className="hover-reveal text-lg">
+              <Link href="mailto:your@email.com" className="hover-reveal text-lg text-[#2c3e50]/80">
                 Email
               </Link>
             </div>
