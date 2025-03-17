@@ -92,6 +92,24 @@
     background-color: #FFFFFF;
     color: #333333;
   }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #FFFFFF;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #99BC85;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7FA66B;
+  }
 }
 
 @layer base {
@@ -103,11 +121,16 @@
 @layer components {
   .btn-primary {
     @apply px-6 py-3 text-white rounded-lg font-honey-salt transition-all duration-300;
-    background-color: #99BC85;
+    background-color: #BFD8AF;
   }
 
   .btn-primary:hover {
-    background-color: rgba(153, 188, 133, 0.9);
+    background-color: #99BC85;
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
   }
 
   .btn-secondary {
@@ -176,7 +199,7 @@
 
   .social-icon {
     @apply transition-all duration-300 cursor-pointer;
-    color: #BFD8AF;
+    color: #6B7280; /* gray-500 */
   }
 
   .social-icon:hover {

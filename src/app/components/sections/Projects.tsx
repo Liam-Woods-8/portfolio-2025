@@ -56,7 +56,7 @@ export default function Projects() {
               }}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1">
+                <div className="order-2 md:order-1 px-6 md:px-8">
                   <h3 className="font-sao-torpes text-4xl mb-6 text-gradient">{project.title}</h3>
                   <p className="text-lg mb-6 leading-relaxed text-text/90">{project.description}</p>
                   <div className="flex flex-wrap gap-3 mb-8">
