@@ -72,7 +72,7 @@ export default function ContactForm() {
       {/* Background pattern */}
       <div className="absolute inset-0 -z-10 opacity-5">
         <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, ${getComputedStyle(document.documentElement).getPropertyValue('--tw-color-mid-blue')} 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, #C4D9FF 1px, transparent 0)`,
           backgroundSize: '20px 20px'
         }}></div>
       </div>

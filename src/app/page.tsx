@@ -189,8 +189,8 @@ export default function Home() {
             <p className="text-lg text-text/90">© 2024 Liam Woods</p>
             <div className="flex gap-12">
               {[
-                { href: "https://github.com/yourusername", text: "GitHub" },
-                { href: "https://linkedin.com/in/yourusername", text: "LinkedIn" },
+                { href: "/github", text: "GitHub" },
+                { href: "/linkedin", text: "LinkedIn" },
                 { href: "mailto:your@email.com", text: "Email" }
               ].map((link, index) => (
                 <Link 

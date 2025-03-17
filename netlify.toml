@@ -1,0 +1,26 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[redirects]]
+  from = "/github"
+  to = "https://github.com/Liam-Woods-8"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/linkedin"
+  to = "https://linkedin.com/in/your-linkedin-username"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/resume"
+  to = "/resume.pdf"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
