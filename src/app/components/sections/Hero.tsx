@@ -9,12 +9,12 @@ export default function Hero() {
           <div className="flex flex-col items-start mb-8">
             <h1 className="slide-in-left text-8xl md:text-9xl lg:text-[12rem] font-sao-torpes mb-2 text-gradient">
               <a href="https://www.linkedin.com/in/liam-woods-8/" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
-                LW
+                Liam
               </a>
             </h1>
             <h1 className="slide-in-right text-8xl md:text-9xl lg:text-[12rem] font-sao-torpes text-gradient">Woods</h1>
           </div>
-          <div className="ml-8">
+          <div className="ml-16">
             <p className="text-xl md:text-2xl mb-8 font-romana-light max-w-2xl">
               Full Stack Developer crafting elegant solutions through code
             </p>
