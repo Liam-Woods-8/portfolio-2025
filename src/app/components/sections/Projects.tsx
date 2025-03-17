@@ -47,7 +47,7 @@ export default function Projects() {
             <article 
               key={index} 
               ref={el => projectRefs.current[index] = el}
-              className="card group rounded-2xl transform transition-all duration-500 hover:shadow-xl relative bg-base mb-8"
+              className="project-card group"
               style={{
                 transform: 'translateY(100px)',
                 opacity: 0.5,
@@ -55,20 +55,20 @@ export default function Projects() {
                 marginTop: index === 0 ? '0' : '-6rem',
               }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div className="order-2 md:order-1 px-6 md:px-8">
-                  <h3 className="font-sao-torpes text-4xl mb-6 text-gradient">{project.title}</h3>
-                  <p className="text-lg mb-6 leading-relaxed text-text/90">{project.description}</p>
+              <div className="project-content">
+                <div className="project-text">
+                  <h3 className="font-sao-torpes text-3xl md:text-4xl mb-6 text-gradient">{project.title}</h3>
+                  <p className="text-base md:text-lg mb-6 leading-relaxed text-text/90">{project.description}</p>
                   <div className="flex flex-wrap gap-3 mb-8">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="px-4 py-2 bg-sage/40 text-text text-sm rounded-full">{tech}</span>
+                      <span key={i} className="px-3 md:px-4 py-1.5 md:py-2 bg-sage/40 text-text text-sm rounded-full">{tech}</span>
                     ))}
                   </div>
-                  <Link href={project.link} className="hover-reveal inline-block text-lg">
+                  <Link href={project.link} className="hover-reveal inline-block text-base md:text-lg">
                     View Project
                   </Link>
                 </div>
-                <div className="order-1 md:order-2">
+                <div className="project-image">
                   <div className="relative rounded-xl overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-tr from-forest/10 to-sage/10 -z-10"></div>
                     <ImagePlaceholder
