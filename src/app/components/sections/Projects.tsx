@@ -41,7 +41,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-32 bg-gradient-to-b from-base via-sage/30 to-base">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">Projects</h2>
+        <h2 className="section-title mb-32">Projects</h2>
         <div className="relative pt-8">
           {PROJECTS.map((project, index) => (
             <article 
