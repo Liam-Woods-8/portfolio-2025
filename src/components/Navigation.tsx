@@ -39,12 +39,14 @@ const Navigation = () => {
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <Link 
-              href="/" 
+            <a 
+              href="https://www.linkedin.com/in/liamantoniowoods"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-3xl font-sao-torpes text-forest hover:text-sage transition-colors"
             >
               LW
-            </Link>
+            </a>
             <div className="flex gap-8">
               {[
                 { href: '#projects', text: 'Projects' },
