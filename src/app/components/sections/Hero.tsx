@@ -1,11 +1,5 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-
-const ImagePlaceholder = dynamic(() => import('../ui/ImagePlaceholder'), {
-  ssr: false
-});
-
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center geometric-pattern">
@@ -14,24 +8,13 @@ export default function Hero() {
           <h1 className="font-sao-torpes text-8xl md:text-9xl lg:text-[12rem] mb-8 text-gradient">
             Liam Woods
           </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-16">
-            <div>
-              <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-text/90">
-                Full Stack Developer crafting exceptional digital experiences through innovative code and creative design solutions
-              </p>
-              <div className="flex gap-8">
-                <a href="#projects" className="btn-primary">View Work</a>
-                <a href="#contact" className="btn-secondary">Contact</a>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-forest/20 via-sage/20 to-cream/20 rounded-2xl -z-10 blur-xl"></div>
-              <ImagePlaceholder
-                width={500}
-                height={500}
-                text="LW"
-                className="w-full aspect-square object-cover"
-              />
+          <div className="mt-16">
+            <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-text/90 max-w-2xl">
+              Full Stack Developer crafting exceptional digital experiences through innovative code and creative design solutions
+            </p>
+            <div className="flex gap-8">
+              <a href="#projects" className="btn-primary">View Work</a>
+              <a href="#contact" className="btn-secondary">Contact</a>
             </div>
           </div>
         </div>
