@@ -80,7 +80,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label className="block text-charcoal mb-2 font-bold">Name</label>
+        <label className="block text-charcoal mb-2 text-lg">Name</label>
         <input
           type="text"
           name="name"
@@ -88,7 +88,7 @@ export default function ContactForm() {
           onChange={handleChange}
           className={`w-full px-4 py-3 rounded-lg border ${
             errors.name ? 'border-red-500' : 'border-charcoal/20'
-          } focus:outline-none focus:border-coral bg-white/50 backdrop-blur-sm transition-colors`}
+          } focus:outline-none focus:border-coral bg-white/50 backdrop-blur-sm transition-colors text-lg leading-relaxed`}
           placeholder="Your name"
         />
         {errors.name && (
@@ -97,7 +97,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-charcoal mb-2 font-bold">Email</label>
+        <label className="block text-charcoal mb-2 text-lg">Email</label>
         <input
           type="email"
           name="email"
@@ -105,7 +105,7 @@ export default function ContactForm() {
           onChange={handleChange}
           className={`w-full px-4 py-3 rounded-lg border ${
             errors.email ? 'border-red-500' : 'border-charcoal/20'
-          } focus:outline-none focus:border-coral bg-white/50 backdrop-blur-sm transition-colors`}
+          } focus:outline-none focus:border-coral bg-white/50 backdrop-blur-sm transition-colors text-lg leading-relaxed`}
           placeholder="your@email.com"
         />
         {errors.email && (
@@ -114,14 +114,14 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label className="block text-charcoal mb-2 font-bold">Message</label>
+        <label className="block text-charcoal mb-2 text-lg">Message</label>
         <textarea
           name="message"
           value={formData.message}
           onChange={handleChange}
           className={`w-full px-4 py-3 rounded-lg border ${
             errors.message ? 'border-red-500' : 'border-charcoal/20'
-          } focus:outline-none focus:border-coral h-32 bg-white/50 backdrop-blur-sm transition-colors`}
+          } focus:outline-none focus:border-coral h-32 bg-white/50 backdrop-blur-sm transition-colors text-lg leading-relaxed`}
           placeholder="Your message"
         />
         {errors.message && (
@@ -132,7 +132,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`btn-primary w-full relative ${isSubmitting ? 'opacity-80' : ''}`}
+        className={`btn-primary w-full relative text-lg ${isSubmitting ? 'opacity-80' : ''}`}
       >
         <span className={`transition-opacity ${isSubmitting ? 'opacity-0' : 'opacity-100'}`}>
           Send Message
@@ -148,13 +148,13 @@ export default function ContactForm() {
       </button>
 
       {submitStatus === 'success' && (
-        <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg animate-fade-in">
+        <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg animate-fade-in text-lg">
           Thank you for your message! I'll get back to you soon.
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg animate-fade-in">
+        <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg animate-fade-in text-lg">
           Sorry, there was an error sending your message. Please try again later.
         </div>
       )}

@@ -9,19 +9,19 @@ const ImagePlaceholder = dynamic(() => import('./components/ImagePlaceholder'), 
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen font-romana-light">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center geometric-pattern">
         <div className="container mx-auto px-4 py-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="flex-1 text-center md:text-left">
               <div className="mb-4 inline-block hover-shine">
-                <span className="text-coral font-romana-light text-xl">Full Stack Developer</span>
+                <span className="text-coral text-xl">Full Stack Developer</span>
               </div>
               <h1 className="font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-6 text-shadow hover-shine">
                 I&apos;m Liam Woods
               </h1>
-              <p className="font-romana-light text-xl md:text-2xl text-charcoal/80 mb-8 max-w-2xl">
+              <p className="text-xl md:text-2xl text-charcoal/80 mb-8 max-w-2xl leading-relaxed">
                 Crafting exceptional digital experiences through innovative code and creative design solutions
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -47,7 +47,7 @@ export default function Home() {
       {/* Featured Projects */}
       <section id="projects" className="py-32 bg-gradient-to-b from-white to-golden/5">
         <div className="container mx-auto px-4">
-          <h2 className="section-title text-center mb-24">Featured Projects</h2>
+          <h2 className="font-sao-torpes text-5xl md:text-6xl text-center mb-24">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <article key={index} className="card group">
@@ -59,8 +59,8 @@ export default function Home() {
                     className="w-full h-full transform group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
-                <h3 className="font-sao-torpes text-2xl mb-3">{project.title}</h3>
-                <p className="text-charcoal/70 mb-6">{project.description}</p>
+                <h3 className="font-sao-torpes text-2xl md:text-3xl mb-3">{project.title}</h3>
+                <p className="text-charcoal/70 mb-6 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, i) => (
                     <span key={i} className="px-3 py-1 bg-golden/10 text-golden rounded-full text-sm">{tech}</span>
@@ -80,14 +80,14 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-start gap-16">
             <div className="flex-1">
-              <h2 className="section-title">Skills & Experience</h2>
-              <p className="text-lg mb-12 text-charcoal/80 max-w-2xl">
+              <h2 className="font-sao-torpes text-5xl md:text-6xl mb-12">Skills & Experience</h2>
+              <p className="text-lg mb-12 text-charcoal/80 max-w-2xl leading-relaxed">
                 With a passion for creating seamless user experiences and robust backend systems,
                 I bring ideas to life through clean, efficient code and modern design principles.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="glass-effect p-6 rounded-xl hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-sao-torpes text-2xl mb-4 text-coral">Frontend</h3>
+                  <h3 className="font-sao-torpes text-2xl md:text-3xl mb-4 text-coral">Frontend</h3>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-golden rounded-full"></span>
@@ -104,7 +104,7 @@ export default function Home() {
                   </ul>
                 </div>
                 <div className="glass-effect p-6 rounded-xl hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-sao-torpes text-2xl mb-4 text-coral">Backend</h3>
+                  <h3 className="font-sao-torpes text-2xl md:text-3xl mb-4 text-coral">Backend</h3>
                   <ul className="space-y-2">
                     <li className="flex items-center gap-2">
                       <span className="w-2 h-2 bg-golden rounded-full"></span>
@@ -140,7 +140,7 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-32 bg-gradient-to-b from-golden/5 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="section-title text-center">Let&apos;s Connect</h2>
+          <h2 className="font-sao-torpes text-5xl md:text-6xl text-center mb-24">Let&apos;s Connect</h2>
           <div className="max-w-2xl mx-auto glass-effect p-8 rounded-2xl mt-16">
             <ContactForm />
           </div>
