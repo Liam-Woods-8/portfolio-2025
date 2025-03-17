@@ -65,13 +65,12 @@ export default function Home() {
       <section id="projects" className="py-32 bg-gradient-to-b from-base via-light-blue/30 to-base">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Projects</h2>
-          <div className="relative">
+          <div className="relative space-y-[-6rem] pt-8">
             {projects.map((project, index) => (
               <article 
                 key={index} 
-                className="card group rounded-2xl mb-16 transform transition-all duration-500 hover:-translate-y-2 relative"
+                className="card group rounded-2xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-xl relative bg-base"
                 style={{
-                  marginTop: index > 0 ? '-4rem' : '0',
                   zIndex: projects.length - index,
                 }}
               >

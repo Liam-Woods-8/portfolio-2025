@@ -12,7 +12,7 @@ const Navigation = () => {
       setScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
-      const sections = ['home', 'projects', 'about', 'contact'];
+      const sections = ['home', 'projects', 'skills', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -41,7 +41,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between">
             <Link 
               href="/" 
-              className="text-3xl font-sao-torpes text-light-blue hover:text-mid-blue transition-colors"
+              className="text-3xl font-sao-torpes text-mid-blue hover:text-purple transition-colors"
             >
               LW
             </Link>
@@ -54,7 +54,7 @@ const Navigation = () => {
                 <Link
                   key={index}
                   href={link.href}
-                  className="text-light-blue hover:text-mid-blue transition-colors"
+                  className="text-mid-blue hover:text-purple transition-colors"
                 >
                   {link.text}
                 </Link>
