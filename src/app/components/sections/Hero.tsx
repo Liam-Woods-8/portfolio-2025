@@ -23,7 +23,7 @@ export default function Hero() {
             <h1 className="slide-in-right text-8xl md:text-9xl lg:text-[12rem] font-sao-torpes text-gradient">Woods</h1>
           </div>
           <div className="ml-12">
-            <p className="text-xl md:text-2xl mb-8 font-romana-light max-w-2xl">
+            <p className="text-xl md:text-2xl mb-8 font-honey-salt max-w-2xl">
               Full Stack Developer crafting elegant solutions through code
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
