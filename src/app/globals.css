@@ -87,15 +87,16 @@
     --input: 217.2 32.6% 17.5%;
     --ring: 142.4 71.8% 29.2%;
   }
+
+  body {
+    background-color: #FFFFFF;
+    color: #333333;
+  }
 }
 
 @layer base {
   * {
     border-color: hsl(var(--border));
-  }
-  body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
   }
 }
 

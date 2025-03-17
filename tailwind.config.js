@@ -10,9 +10,9 @@ module.exports = {
         forest: '#99BC85',
         sage: '#BFD8AF',
         cream: '#D4E7C5',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        border: 'hsl(var(--border))',
+        base: '#FFFFFF',
+        text: '#333333',
+        border: '#E5E7EB',
       },
       fontFamily: {
         'sao-torpes': ['Sao Torpes', 'sans-serif'],
@@ -29,7 +29,7 @@ module.exports = {
         }
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, var(--background) 0%, var(--foreground) 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #99BC85 0%, #D4E7C5 100%)',
       },
     },
   },
