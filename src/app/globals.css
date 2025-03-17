@@ -36,6 +36,28 @@
   --color-text: #2C3E2D;
 }
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 @layer base {
   body {
     background-color: var(--color-base);
@@ -58,7 +80,7 @@
   }
 
   .glass-effect {
-    @apply bg-base/50 backdrop-blur-sm border border-sage rounded-2xl shadow-lg;
+    @apply bg-base/50 backdrop-blur-sm border border-[#E4EFE7] rounded-2xl shadow-lg;
   }
 
   .card {
@@ -174,6 +196,14 @@
   .hover-reveal:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 1s ease-out forwards;
   }
 }
 
