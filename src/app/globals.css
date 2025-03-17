@@ -221,12 +221,12 @@
   /* Form input focus styles */
   input:focus ~ label,
   textarea:focus ~ label {
-    @apply text-forest;
+    color: #99BC85;
   }
 
   /* Form group hover styles */
   .group:hover label {
-    @apply text-forest;
+    color: #99BC85;
   }
 
   .social-icon {
@@ -235,11 +235,12 @@
   }
 
   .social-icon:hover {
-    @apply text-forest transform scale-110;
+    color: #99BC85;
+    transform: scale(1.1);
   }
 
   .social-icon:active {
-    @apply transform scale-95;
+    transform: scale(0.95);
   }
 }
 
