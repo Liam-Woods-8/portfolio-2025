@@ -2,7 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Colors */
+@font-face {
+  font-family: 'Sao Torpes';
+  src: url('/fonts/SaoTorpes-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ramona';
+  src: url('/fonts/Ramona-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ramona';
+  src: url('/fonts/Ramona-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ramona Light';
+  src: url('/fonts/Ramona-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-base: #FDFAF6;
   --color-cream: #FAF1E6;
@@ -11,85 +42,217 @@
   --color-text: #2C3E2D;
 }
 
-/* Fonts */
-@font-face {
-  font-family: 'Sao Torpes';
-  src: url('/fonts/SaoTorpes-Regular.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ramona';
-  src: url('/fonts/Ramona-Regular.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ramona';
-  src: url('/fonts/Ramona-Bold.woff2') format('woff2');
-  font-weight: bold;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ramona Light';
-  src: url('/fonts/Ramona-Light.woff2') format('woff2');
-  font-display: swap;
-}
-
-/* Basic Styles */
-body {
-  background-color: var(--color-base);
-  color: var(--color-text);
-  font-family: 'Ramona', sans-serif;
-}
-
-/* Animations */
 @keyframes slideInLeft {
-  from { transform: translateX(-100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slideInRight {
-  from { transform: translateX(100%); opacity: 0; }
-  to { transform: translateX(0); opacity: 1; }
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 1s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 1s ease-out forwards;
-}
-
-/* Components */
-.btn-primary {
-  @apply px-6 py-3 text-base rounded-lg transition-all duration-300;
-  background-color: #99BC85;
-}
-
-.btn-primary:hover {
-  background-color: rgba(153, 188, 133, 0.9);
-}
-
-.btn-secondary {
-  @apply px-6 py-3 text-text rounded-lg transition-all duration-300;
-  background-color: #E4EFE7;
-}
-
-.btn-secondary:hover {
-  background-color: rgba(228, 239, 231, 0.9);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  from {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  
-  h1 {
-    font-size: 3rem;
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-base);
+    color: var(--color-text);
+    font-family: 'Ramona', sans-serif;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#99BC85] to-[#E4EFE7] bg-clip-text text-transparent;
+  }
+
+  .geometric-pattern {
+    @apply relative bg-gradient-to-br from-[#99BC85]/20 via-[#E4EFE7]/20 to-[#FAF1E6]/20;
+  }
+
+  .section-title {
+    @apply font-sao-torpes text-5xl md:text-6xl mb-16 text-gradient;
+  }
+
+  .glass-effect {
+    @apply bg-base/50 backdrop-blur-sm border border-[#E4EFE7] rounded-2xl shadow-lg;
+  }
+
+  .card {
+    @apply p-8 md:p-12;
+    background: var(--color-base);
+    border: 1px solid var(--color-sage);
+  }
+
+  .hover-reveal {
+    position: relative;
+    color: var(--color-text);
+  }
+
+  .hover-reveal::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-forest);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .hover-reveal:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 text-base rounded-lg transition-all duration-300;
+    background-color: #99BC85;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(153, 188, 133, 0.9);
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 text-text rounded-lg transition-all duration-300;
+    background-color: #E4EFE7;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(228, 239, 231, 0.9);
+  }
+
+  .font-sao-torpes {
+    font-family: 'Sao Torpes', sans-serif;
+  }
+
+  .font-romana-light {
+    font-family: 'Ramona Light', serif;
+  }
+
+  .form-input {
+    @apply w-full px-6 py-4 border-2 border-transparent rounded-lg font-romana-light transition-all duration-300 focus:outline-none;
+    background-color: var(--color-sage);
+    opacity: 0.2;
+  }
+
+  .form-input:focus {
+    border-color: var(--color-forest);
+    background-color: var(--color-sage);
+    opacity: 0.3;
+  }
+
+  .form-label {
+    @apply block mb-2 text-lg font-romana-light;
+    color: rgba(44, 62, 45, 0.9); /* var(--color-text) with 0.9 opacity */
+  }
+
+  .form-group {
+    @apply relative mb-6;
+  }
+
+  .form-group:hover .form-label {
+    color: var(--color-forest);
+  }
+
+  .form-submit {
+    @apply w-full px-8 py-4 font-romana-light transition-all duration-300 rounded-lg transform hover:-translate-y-1 hover:shadow-lg;
+    background: linear-gradient(to right, var(--color-sage), var(--color-forest));
+    color: var(--color-base);
+  }
+
+  .form-submit:hover {
+    background: linear-gradient(to right, var(--color-forest), var(--color-sage));
+  }
+
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-4 left-0 w-24 h-1 transition-all duration-300;
+    background-color: var(--color-forest);
+  }
+
+  .section-title:hover::after {
+    background-color: var(--color-sage);
+  }
+
+  .geometric-pattern::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(to bottom, transparent, var(--color-base) 90%);
+    pointer-events: none;
+  }
+
+  .hover-reveal {
+    @apply relative overflow-hidden font-romana-light;
+  }
+
+  .hover-reveal::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5;
+    background-color: var(--color-forest);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .hover-reveal:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 1s ease-out forwards;
+  }
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+  .geometric-pattern {
+    background-size: 15px 15px;
+  }
+}
+
+.loading {
+  @apply relative overflow-hidden;
+}
+
+.loading::after {
+  content: '';
+  @apply absolute inset-0;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    var(--color-sage) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
   }
 }
