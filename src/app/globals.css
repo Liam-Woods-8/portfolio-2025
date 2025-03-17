@@ -82,7 +82,7 @@
   }
 
   .section-title {
-    @apply font-sao-torpes text-5xl md:text-6xl mb-24 text-gradient;
+    @apply font-sao-torpes text-5xl md:text-6xl mb-32 text-gradient relative;
   }
 
   .glass-effect {
