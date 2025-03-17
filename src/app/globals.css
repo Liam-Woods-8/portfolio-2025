@@ -12,15 +12,7 @@
 
 @font-face {
   font-family: 'Ramona';
-  src: url('/fonts/Ramona-Regular.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Ramona';
-  src: url('/fonts/Ramona-Bold.woff2') format('woff2');
+  src: url('/fonts/Ramona-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -28,7 +20,7 @@
 
 @font-face {
   font-family: 'Ramona Light';
-  src: url('/fonts/Ramona-Light.woff2') format('woff2');
+  src: url('/fonts/Ramona-Light.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -82,7 +74,7 @@
   }
 
   .section-title {
-    @apply font-sao-torpes text-5xl md:text-6xl mb-32 text-gradient relative;
+    @apply font-sao-torpes text-5xl md:text-6xl mb-40 text-gradient relative;
   }
 
   .glass-effect {
