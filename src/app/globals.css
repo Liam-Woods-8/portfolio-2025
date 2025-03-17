@@ -2,21 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --color-background: #F5F5F5;
-    --color-text: #333333;
-    --color-primary: #99BC85;
-    --color-secondary: #BFD8AF;
-    --color-accent: #D4E2D4;
-  }
-
-  body {
-    background-color: var(--color-background);
-    color: var(--color-text);
-  }
-}
-
 @font-face {
   font-family: 'Sao Torpes';
   src: url('/fonts/SaoTorpes-Regular.woff2') format('woff2');
@@ -26,89 +11,186 @@
 }
 
 @font-face {
-  font-family: 'Honey Salt';
-  src: url('/fonts/HoneySalt-Regular.ttf') format('truetype');
+  font-family: 'Ramona';
+  src: url('/fonts/Ramona-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Ramona';
+  src: url('/fonts/Ramona-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ramona';
+  src: url('/fonts/Ramona-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Honey Salt';
+  src: url('/Honey Salt.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142.4 71.8% 29.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
 @layer components {
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-white rounded-lg font-honey-salt transition-all duration-300 hover:bg-primary/90;
+    @apply px-6 py-3 text-white rounded-lg font-honey-salt transition-all duration-300;
+    background-color: #99BC85;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(153, 188, 133, 0.9);
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-secondary text-primary rounded-lg font-honey-salt transition-all duration-300 hover:bg-secondary/90;
+    @apply px-6 py-3 text-white rounded-lg font-honey-salt transition-all duration-300;
+    background-color: #BFD8AF;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(191, 216, 175, 0.9);
   }
 
   .section-title {
-    @apply text-4xl md:text-5xl font-sao-torpes mb-32;
+    @apply text-4xl md:text-5xl font-sao-torpes mb-24;
   }
 
-  .card {
-    @apply bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:shadow-xl;
+  .geometric-pattern {
+    background-image: 
+      linear-gradient(45deg, #99BC85 25%, transparent 25%),
+      linear-gradient(-45deg, #99BC85 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #99BC85 75%),
+      linear-gradient(-45deg, transparent 75%, #99BC85 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    opacity: 0.1;
   }
-}
 
-@layer utilities {
+  .slide-in-left {
+    animation: slideInLeft 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .slide-in-right {
+    animation: slideInRight 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+    background: linear-gradient(45deg, #99BC85, #D4E7C5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
-}
 
-/* Animations */
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
+  .social-icon {
+    @apply transition-all duration-300 cursor-pointer;
+    color: #BFD8AF;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+
+  .social-icon:hover {
+    color: #99BC85;
+    transform: scale(1.1);
   }
-}
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
+  .social-icon:active {
+    transform: scale(0.95);
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+
+  input:focus ~ label,
+  textarea:focus ~ label {
+    color: #99BC85;
   }
-}
 
-.slide-in-left {
-  animation: slideInLeft 1s ease-out forwards;
-}
-
-.slide-in-right {
-  animation: slideInRight 1s ease-out forwards;
-}
-
-/* Form input focus styles */
-input:focus ~ label,
-textarea:focus ~ label {
-  color: #99BC85;
-}
-
-/* Form group hover styles */
-.group:hover label {
-  color: #99BC85;
-}
-
-.social-icon {
-  @apply transition-all duration-300 cursor-pointer;
-  color: var(--color-text);
-}
-
-.social-icon:hover {
-  color: #99BC85;
-  transform: scale(1.1);
-}
-
-.social-icon:active {
-  transform: scale(0.95);
+  .group:hover label {
+    color: #99BC85;
+  }
 }
