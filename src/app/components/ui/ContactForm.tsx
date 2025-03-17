@@ -42,8 +42,8 @@ export default function ContactForm() {
   const renderFormField = ({ id, label, type, rows }: FormField) => {
     if (type === 'textarea') {
       return (
-        <div key={id} className="mb-6">
-          <label htmlFor={id} className="block text-text/90 mb-2">{label}</label>
+        <div key={id} className="mb-6 group">
+          <label htmlFor={id} className="block mb-2 text-text/90 group-hover:text-forest transition-colors">{label}</label>
           <textarea
             id={id}
             name={id}
@@ -58,8 +58,8 @@ export default function ContactForm() {
     }
 
     return (
-      <div key={id} className="mb-6">
-        <label htmlFor={id} className="block text-text/90 mb-2">{label}</label>
+      <div key={id} className="mb-6 group">
+        <label htmlFor={id} className="block mb-2 text-text/90 group-hover:text-forest transition-colors">{label}</label>
         <input
           type={type}
           id={id}

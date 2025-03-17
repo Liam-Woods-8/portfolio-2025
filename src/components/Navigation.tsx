@@ -41,7 +41,7 @@ const Navigation = () => {
           <div className="flex items-center justify-between">
             <Link 
               href="/" 
-              className="text-3xl font-sao-torpes text-mid-blue hover:text-purple transition-colors"
+              className="text-3xl font-sao-torpes text-forest hover:text-sage transition-colors"
             >
               LW
             </Link>
@@ -54,7 +54,7 @@ const Navigation = () => {
                 <Link
                   key={index}
                   href={link.href}
-                  className="text-mid-blue hover:text-purple transition-colors"
+                  className="text-forest hover:text-sage transition-colors"
                 >
                   {link.text}
                 </Link>
@@ -65,8 +65,8 @@ const Navigation = () => {
       </nav>
 
       {/* Side Navigation Dots */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-6">
-        {['home', 'projects', 'about', 'contact'].map((section) => (
+      <div className="fixed right-8 top-1/2 -translate-y-1/2 space-y-6 hidden lg:flex flex-col">
+        {['home', 'projects', 'skills', 'contact'].map((section) => (
           <Link
             key={section}
             href={`/#${section}`}
@@ -74,10 +74,10 @@ const Navigation = () => {
           >
             <span className={`w-3 h-3 rounded-full transition-all duration-300 ${
               activeSection === section
-                ? 'bg-[var(--yellow)] scale-125'
-                : 'bg-[var(--deep-blue)] opacity-50 hover:opacity-100'
+                ? 'bg-forest scale-125'
+                : 'bg-sage opacity-50 hover:opacity-100'
             }`} />
-            <span className="absolute right-full mr-4 py-1 px-2 text-sm font-['Romana_Light'] text-[var(--deep-blue)] opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 capitalize">
+            <span className="absolute right-full mr-4 py-1 px-2 text-sm font-ramona text-forest opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 capitalize">
               {section}
             </span>
           </Link>
@@ -86,26 +86,26 @@ const Navigation = () => {
 
       {/* Mobile Menu Button */}
       <button
-        className="fixed top-6 right-4 z-50 md:hidden bg-[var(--background)] p-2 rounded-full shadow-md"
+        className="fixed top-6 right-4 z-50 md:hidden bg-base p-2 rounded-full shadow-md"
         onClick={() => document.body.classList.toggle('mobile-menu-open')}
       >
-        <div className="w-6 h-0.5 bg-[var(--deep-blue)] mb-1.5" />
-        <div className="w-6 h-0.5 bg-[var(--deep-blue)] mb-1.5" />
-        <div className="w-6 h-0.5 bg-[var(--deep-blue)]" />
+        <div className="w-6 h-0.5 bg-forest mb-1.5" />
+        <div className="w-6 h-0.5 bg-forest mb-1.5" />
+        <div className="w-6 h-0.5 bg-forest" />
       </button>
 
       {/* Mobile Menu */}
-      <div className="fixed inset-0 bg-[var(--background)] z-40 md:hidden transform translate-x-full transition-transform duration-300 mobile-menu">
+      <div className="fixed inset-0 bg-base/95 backdrop-blur-sm z-40 transform transition-transform duration-300 md:hidden mobile-menu">
         <div className="container mx-auto px-4 py-20">
           <div className="flex flex-col gap-8">
-            {['Home', 'Projects', 'About', 'Contact'].map((item) => (
+            {['Home', 'Projects', 'Skills', 'Contact'].map((item) => (
               <Link
                 key={item}
                 href={`/#${item.toLowerCase()}`}
-                className={`font-['Sao_Torpes'] text-3xl ${
+                className={`font-sao-torpes text-3xl ${
                   activeSection === item.toLowerCase()
-                    ? 'text-[var(--deep-blue)]'
-                    : 'text-[var(--royal-blue)]'
+                    ? 'text-forest'
+                    : 'text-sage'
                 }`}
                 onClick={() => document.body.classList.remove('mobile-menu-open')}
               >
