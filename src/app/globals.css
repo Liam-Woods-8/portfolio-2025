@@ -228,6 +228,19 @@
   .group:hover label {
     @apply text-forest;
   }
+
+  .social-icon {
+    @apply transition-all duration-300 cursor-pointer;
+    color: var(--color-text);
+  }
+
+  .social-icon:hover {
+    @apply text-forest transform scale-110;
+  }
+
+  .social-icon:active {
+    @apply transform scale-95;
+  }
 }
 
 @keyframes gradientBG {
