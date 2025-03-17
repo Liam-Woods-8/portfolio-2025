@@ -56,7 +56,6 @@ export default function ContactForm() {
 
     try {
       // Here you would typically send the form data to your backend
-      // For now, we'll simulate an API call
       await new Promise(resolve => setTimeout(resolve, 1500));
       
       setSubmitStatus('success');
@@ -71,68 +70,67 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-8">
       <div>
-        <label className="block text-charcoal mb-2 text-lg">Name</label>
+        <label className="block text-lg mb-3">Name</label>
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full px-4 py-3 rounded-lg border ${
-            errors.name ? 'border-red-500' : 'border-charcoal/20'
-          } focus:outline-none focus:border-coral bg-white/50 backdrop-blur-sm transition-colors text-lg leading-relaxed`}
+          className={`w-full px-6 py-4 bg-transparent border-b-2 ${
+            errors.name ? 'border-red-500' : 'border-primary'
+          } focus:outline-none focus:border-secondary transition-colors text-lg`}
           placeholder="Your name"
         />
         {errors.name && (
-          <p className="mt-1 text-red-500 text-sm">{errors.name}</p>
+          <p className="mt-2 text-red-500">{errors.name}</p>
         )}
       </div>
 
       <div>
-        <label className="block text-charcoal mb-2 text-lg">Email</label>
+        <label className="block text-lg mb-3">Email</label>
         <input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full px-4 py-3 rounded-lg border ${
-            errors.email ? 'border-red-500' : 'border-charcoal/20'
-          } focus:outline-none focus:border-coral bg-white/50 backdrop-blur-sm transition-colors text-lg leading-relaxed`}
+          className={`w-full px-6 py-4 bg-transparent border-b-2 ${
+            errors.email ? 'border-red-500' : 'border-primary'
+          } focus:outline-none focus:border-secondary transition-colors text-lg`}
           placeholder="your@email.com"
         />
         {errors.email && (
-          <p className="mt-1 text-red-500 text-sm">{errors.email}</p>
+          <p className="mt-2 text-red-500">{errors.email}</p>
         )}
       </div>
 
       <div>
-        <label className="block text-charcoal mb-2 text-lg">Message</label>
+        <label className="block text-lg mb-3">Message</label>
         <textarea
           name="message"
           value={formData.message}
           onChange={handleChange}
-          className={`w-full px-4 py-3 rounded-lg border ${
-            errors.message ? 'border-red-500' : 'border-charcoal/20'
-          } focus:outline-none focus:border-coral h-32 bg-white/50 backdrop-blur-sm transition-colors text-lg leading-relaxed`}
+          className={`w-full px-6 py-4 bg-transparent border-b-2 ${
+            errors.message ? 'border-red-500' : 'border-primary'
+          } focus:outline-none focus:border-secondary h-32 resize-none transition-colors text-lg`}
           placeholder="Your message"
         />
         {errors.message && (
-          <p className="mt-1 text-red-500 text-sm">{errors.message}</p>
+          <p className="mt-2 text-red-500">{errors.message}</p>
         )}
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className={`btn-primary w-full relative text-lg ${isSubmitting ? 'opacity-80' : ''}`}
+        className={`btn-primary w-full relative ${isSubmitting ? 'opacity-80' : ''}`}
       >
         <span className={`transition-opacity ${isSubmitting ? 'opacity-0' : 'opacity-100'}`}>
           Send Message
@@ -148,13 +146,13 @@ export default function ContactForm() {
       </button>
 
       {submitStatus === 'success' && (
-        <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-lg animate-fade-in text-lg">
+        <div className="mt-6 p-4 bg-green-50 text-green-700 text-lg">
           Thank you for your message! I'll get back to you soon.
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-lg animate-fade-in text-lg">
+        <div className="mt-6 p-4 bg-red-50 text-red-700 text-lg">
           Sorry, there was an error sending your message. Please try again later.
         </div>
       )}

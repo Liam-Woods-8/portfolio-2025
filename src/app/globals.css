@@ -19,23 +19,17 @@
 }
 
 :root {
-  --golden: #ffd700;
-  --golden-light: #ffe666;
-  --orange: #ff6b6b;
-  --orange-light: #ff8f8f;
-  --coral: #ff7f50;
-  --coral-light: #ffa07a;
-  --charcoal: #2c3e50;
-  --charcoal-light: #404040;
-  --sky-blue: #4a90e2;
-  --sky-blue-light: #6aa9e9;
-  --background: #FFFFFF;
+  --background: #FBFBFB;
+  --primary: #C5BAFF;
+  --secondary: #C4D9FF;
+  --accent: #E8F9FF;
+  --text: #2c3e50;
 }
 
 @layer base {
   body {
-    @apply bg-white text-charcoal;
-    background: linear-gradient(135deg, var(--golden-light) 0%, var(--coral-light) 50%, var(--sky-blue-light) 100%);
+    @apply bg-[#FBFBFB] text-text;
+    background: linear-gradient(135deg, var(--background) 0%, var(--accent) 50%, var(--secondary) 100%);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
   }
@@ -51,49 +45,39 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-coral text-white rounded-lg font-bold transition-all duration-300 hover:bg-orange hover:shadow-lg transform hover:-translate-y-1;
+    @apply px-8 py-4 bg-primary text-white rounded-none font-bold transition-all duration-300 hover:bg-secondary hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-transparent border-2 border-coral text-coral rounded-lg font-bold transition-all duration-300 hover:bg-coral hover:text-white hover:shadow-lg transform hover:-translate-y-1;
+    @apply px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-none font-bold transition-all duration-300 hover:bg-primary hover:text-white hover:shadow-lg;
   }
 
   .section-title {
-    @apply font-sao-torpes text-4xl md:text-5xl mb-12 relative inline-block;
+    @apply font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-16 relative;
   }
 
   .section-title::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-golden via-coral to-sky-blue transform scale-x-0 transition-transform duration-300 origin-left;
-  }
-
-  .section-title:hover::after {
-    @apply scale-x-100;
+    @apply absolute -bottom-4 left-0 w-24 h-1 bg-primary transition-all duration-300;
   }
 
   .card {
-    @apply p-6 rounded-xl bg-white/80 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
+    @apply p-8 bg-white/90 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl border-b-2 border-transparent hover:border-primary;
   }
 
-  .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
 
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-sm;
+    @apply bg-white/95 backdrop-blur-sm border-l-2 border-primary;
   }
 }
 
 @keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes float {
@@ -119,32 +103,43 @@
 }
 
 .geometric-pattern {
-  background-image: radial-gradient(var(--golden-light) 1px, transparent 1px),
-                    radial-gradient(var(--coral-light) 1px, transparent 1px);
-  background-size: 20px 20px;
-  background-position: 0 0, 10px 10px;
-  animation: patternMove 20s linear infinite;
+  background-color: var(--background);
+  background-image: linear-gradient(var(--accent) 1px, transparent 1px),
+                    linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+  background-size: 50px 50px;
+  position: relative;
 }
 
-@keyframes patternMove {
-  0% {
-    background-position: 0 0, 10px 10px;
-  }
-  100% {
-    background-position: 20px 20px, 30px 30px;
-  }
+.geometric-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, var(--background));
+  pointer-events: none;
 }
 
 /* Hover effects */
-.hover-shine {
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    transparent 100%
-  );
-  background-size: 200% auto;
-  animation: shine 3s linear infinite;
+.hover-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-reveal::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.hover-reveal:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 /* Responsive adjustments */
