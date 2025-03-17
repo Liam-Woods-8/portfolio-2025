@@ -4,7 +4,7 @@ import { SKILLS } from '@/app/lib/constants';
 
 export default function Skills() {
   return (
-    <section className="py-32 bg-gradient-to-b from-base via-mid-blue/10 to-base">
+    <section id="skills" className="py-32 bg-gradient-to-b from-base via-mid-blue/10 to-base">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
