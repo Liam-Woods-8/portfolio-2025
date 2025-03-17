@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import ContactForm from './components/ContactForm'
@@ -6,6 +5,27 @@ import ContactForm from './components/ContactForm'
 const ImagePlaceholder = dynamic(() => import('./components/ImagePlaceholder'), {
   ssr: false
 });
+
+const projects = [
+  {
+    title: "Project One",
+    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
+    technologies: ["React", "Node.js", "MongoDB"],
+    link: "/projects/1"
+  },
+  {
+    title: "Project Two",
+    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
+    technologies: ["Next.js", "TypeScript", "Tailwind"],
+    link: "/projects/2"
+  },
+  {
+    title: "Project Three",
+    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
+    technologies: ["Python", "Django", "PostgreSQL"],
+    link: "/projects/3"
+  }
+];
 
 export default function Home() {
   return (
@@ -41,7 +61,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Projects Section */}
       <section id="projects" className="py-32 bg-gradient-to-b from-base via-light-blue/30 to-base">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Projects</h2>
@@ -79,35 +99,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills & Experience */}
+      {/* Skills Section */}
       <section className="py-32 bg-gradient-to-b from-base via-mid-blue/10 to-base">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="glass-effect p-8">
-              <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">Frontend</h3>
-              <ul className="space-y-4 text-lg text-text/80">
-                <li>React & Next.js</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-              </ul>
-            </div>
-            <div className="glass-effect p-8">
-              <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">Backend</h3>
-              <ul className="space-y-4 text-lg text-text/80">
-                <li>Node.js</li>
-                <li>Python</li>
-                <li>SQL & NoSQL</li>
-              </ul>
-            </div>
-            <div className="glass-effect p-8">
-              <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">Tools</h3>
-              <ul className="space-y-4 text-lg text-text/80">
-                <li>Git</li>
-                <li>Docker</li>
-                <li>AWS</li>
-              </ul>
-            </div>
+            {[
+              {
+                title: "Frontend",
+                skills: ["React & Next.js", "TypeScript", "Tailwind CSS"]
+              },
+              {
+                title: "Backend",
+                skills: ["Node.js", "Python", "SQL & NoSQL"]
+              },
+              {
+                title: "Tools",
+                skills: ["Git", "Docker", "AWS"]
+              }
+            ].map((category, index) => (
+              <div key={index} className="glass-effect p-8">
+                <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">{category.title}</h3>
+                <ul className="space-y-4 text-lg text-text/80">
+                  {category.skills.map((skill, i) => (
+                    <li key={i}>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -128,15 +147,19 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <p className="text-lg text-text/80">© 2024 Liam Woods</p>
             <div className="flex gap-12">
-              <Link href="https://github.com/yourusername" className="hover-reveal text-lg text-text/80">
-                GitHub
-              </Link>
-              <Link href="https://linkedin.com/in/yourusername" className="hover-reveal text-lg text-text/80">
-                LinkedIn
-              </Link>
-              <Link href="mailto:your@email.com" className="hover-reveal text-lg text-text/80">
-                Email
-              </Link>
+              {[
+                { href: "https://github.com/yourusername", text: "GitHub" },
+                { href: "https://linkedin.com/in/yourusername", text: "LinkedIn" },
+                { href: "mailto:your@email.com", text: "Email" }
+              ].map((link, index) => (
+                <Link 
+                  key={index}
+                  href={link.href} 
+                  className="hover-reveal text-lg text-text/80"
+                >
+                  {link.text}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -144,27 +167,3 @@ export default function Home() {
     </main>
   )
 }
-
-const projects = [
-  {
-    title: "Project One",
-    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
-    image: "/project1.jpg",
-    technologies: ["React", "Node.js", "MongoDB"],
-    link: "/projects/1"
-  },
-  {
-    title: "Project Two",
-    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
-    image: "/project2.jpg",
-    technologies: ["Next.js", "TypeScript", "Tailwind"],
-    link: "/projects/2"
-  },
-  {
-    title: "Project Three",
-    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
-    image: "/project3.jpg",
-    technologies: ["Python", "Django", "PostgreSQL"],
-    link: "/projects/3"
-  }
-];

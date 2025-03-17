@@ -13,12 +13,6 @@ module.exports = {
         'mid-blue': '#C4D9FF',
         purple: '#C5BAFF',
         text: '#2c3e50',
-        'golden': '#F0A202',
-        'orange': '#F18805',
-        'coral': '#D95D39',
-        'charcoal': '#262626',
-        'sky-blue': '#9AC4F8',
-        'background': '#FFFFFF',
       },
       fontFamily: {
         'sao-torpes': ['Sao Torpes', 'sans-serif'],

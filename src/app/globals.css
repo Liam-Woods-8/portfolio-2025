@@ -51,11 +51,10 @@
 
   .section-title {
     @apply font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-16 relative;
-  }
-
-  .section-title::after {
-    content: '';
-    @apply absolute -bottom-4 left-0 w-24 h-1 bg-gradient-secondary transition-all duration-300;
+    &::after {
+      content: '';
+      @apply absolute -bottom-4 left-0 w-24 h-1 bg-gradient-secondary transition-all duration-300;
+    }
   }
 
   .card {
@@ -75,40 +74,37 @@
     border-left: 2px solid;
     border-image: linear-gradient(to bottom, theme('colors.purple'), theme('colors.mid-blue')) 1;
   }
-}
 
-.geometric-pattern {
-  @apply bg-base;
-  background-image: 
-    linear-gradient(theme('colors.light-blue') 1px, transparent 1px),
-    linear-gradient(90deg, theme('colors.light-blue') 1px, transparent 1px);
-  background-size: 50px 50px;
-  position: relative;
-}
+  .geometric-pattern {
+    @apply bg-base relative;
+    background-image: 
+      linear-gradient(theme('colors.light-blue') 1px, transparent 1px),
+      linear-gradient(90deg, theme('colors.light-blue') 1px, transparent 1px);
+    background-size: 50px 50px;
 
-.geometric-pattern::before {
-  content: '';
-  @apply absolute inset-0;
-  background: linear-gradient(to bottom, transparent, theme('colors.base'));
-  pointer-events: none;
-}
+    &::before {
+      content: '';
+      @apply absolute inset-0;
+      background: linear-gradient(to bottom, transparent, theme('colors.base'));
+      pointer-events: none;
+    }
+  }
 
-.hover-reveal {
-  @apply relative overflow-hidden;
-}
-
-.hover-reveal::after {
-  content: '';
-  @apply absolute bottom-0 left-0 w-full h-0.5;
-  background: linear-gradient(to right, theme('colors.purple'), theme('colors.mid-blue'));
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.hover-reveal:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  .hover-reveal {
+    @apply relative overflow-hidden;
+    &::after {
+      content: '';
+      @apply absolute bottom-0 left-0 w-full h-0.5;
+      background: linear-gradient(to right, theme('colors.purple'), theme('colors.mid-blue'));
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
 }
 
 @keyframes gradientBG {
