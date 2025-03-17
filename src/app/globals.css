@@ -20,80 +20,88 @@
   --text: #2C3E2D;
 }
 
-body {
-  background-color: var(--base);
-  color: var(--text);
-  font-family: 'Ramona Light', sans-serif;
-}
-
-.text-gradient {
-  background: linear-gradient(to right, var(--forest), var(--sage));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.geometric-pattern {
-  background-color: var(--base);
-  background-image: radial-gradient(var(--sage) 0.5px, var(--base) 0.5px);
-  background-size: 10px 10px;
-}
-
-.section-title {
-  @apply font-sao-torpes text-5xl md:text-6xl mb-16 text-gradient text-center;
-}
-
-.glass-effect {
-  background: rgba(253, 250, 246, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--sage);
-  border-radius: 1rem;
-}
-
-.card {
-  @apply p-8 md:p-12;
-  background: var(--base);
-  border: 1px solid var(--sage);
-}
-
-.hover-reveal {
-  position: relative;
-  color: var(--text);
-}
-
-.hover-reveal::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: var(--forest);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s ease-out;
-}
-
-.hover-reveal:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.btn-primary {
-  @apply px-8 py-3 bg-forest text-base rounded-lg transition-all duration-300 hover:bg-opacity-90;
-}
-
-.btn-secondary {
-  @apply px-8 py-3 bg-sage text-text rounded-lg transition-all duration-300 hover:bg-opacity-90;
-}
-
 @layer base {
   body {
-    @apply bg-base text-text font-romana-light;
+    background-color: var(--base);
+    color: var(--text);
+    font-family: 'Ramona Light', sans-serif;
   }
 }
 
 @layer components {
+  .text-gradient {
+    background: linear-gradient(to right, var(--forest), var(--sage));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .geometric-pattern {
+    background-color: var(--base);
+    background-image: radial-gradient(var(--sage) 0.5px, var(--base) 0.5px);
+    background-size: 10px 10px;
+  }
+
+  .section-title {
+    @apply font-sao-torpes text-5xl md:text-6xl mb-16 text-gradient text-center;
+  }
+
+  .glass-effect {
+    background: rgba(253, 250, 246, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--sage);
+    border-radius: 1rem;
+  }
+
+  .card {
+    @apply p-8 md:p-12;
+    background: var(--base);
+    border: 1px solid var(--sage);
+  }
+
+  .hover-reveal {
+    position: relative;
+    color: var(--text);
+  }
+
+  .hover-reveal::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--forest);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+
+  .hover-reveal:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .btn-primary {
+    @apply px-8 py-3 rounded-lg transition-all duration-300;
+    background-color: var(--forest);
+    color: var(--base);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 rounded-lg transition-all duration-300;
+    background-color: var(--sage);
+    color: var(--text);
+  }
+
+  .btn-secondary:hover {
+    opacity: 0.9;
+  }
+
   .font-sao-torpes {
     font-family: 'Sao Torpes', sans-serif;
   }
