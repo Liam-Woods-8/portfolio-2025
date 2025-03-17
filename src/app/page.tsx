@@ -65,16 +65,23 @@ export default function Home() {
       <section id="projects" className="py-32 bg-gradient-to-b from-base via-light-blue/30 to-base">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Projects</h2>
-          <div className="grid grid-cols-1 gap-16">
+          <div className="relative">
             {projects.map((project, index) => (
-              <article key={index} className="card group">
+              <article 
+                key={index} 
+                className="card group rounded-2xl mb-16 transform transition-all duration-500 hover:-translate-y-2 relative"
+                style={{
+                  marginTop: index > 0 ? '-4rem' : '0',
+                  zIndex: projects.length - index,
+                }}
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                   <div className="order-2 md:order-1">
                     <h3 className="font-sao-torpes text-4xl mb-6 text-gradient">{project.title}</h3>
                     <p className="text-lg mb-6 leading-relaxed text-text/90">{project.description}</p>
                     <div className="flex flex-wrap gap-3 mb-8">
                       {project.technologies.map((tech, i) => (
-                        <span key={i} className="px-4 py-2 bg-light-blue/40 text-text text-sm">{tech}</span>
+                        <span key={i} className="px-4 py-2 bg-light-blue/40 text-text text-sm rounded-full">{tech}</span>
                       ))}
                     </div>
                     <Link href={project.link} className="hover-reveal inline-block text-lg">
@@ -82,13 +89,13 @@ export default function Home() {
                     </Link>
                   </div>
                   <div className="order-1 md:order-2">
-                    <div className="relative">
+                    <div className="relative rounded-xl overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-tr from-purple/10 to-mid-blue/10 -z-10"></div>
                       <ImagePlaceholder
                         width={600}
                         height={400}
                         text={project.title}
-                        className="w-full aspect-video object-cover"
+                        className="w-full aspect-video object-cover rounded-xl"
                       />
                     </div>
                   </div>

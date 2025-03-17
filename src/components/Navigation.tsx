@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 const Navigation = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
       const sections = ['home', 'projects', 'about', 'contact'];
@@ -35,27 +35,31 @@ const Navigation = () => {
     <>
       {/* Main Navigation */}
       <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'py-4 bg-[var(--background)]/90 backdrop-blur-sm shadow-sm' : 'py-6'
+        scrolled ? 'py-4 bg-base/80 backdrop-blur-sm' : 'py-6'
       }`}>
-        <div className="container mx-auto px-4 flex justify-between items-center">
-          <Link 
-            href="/#home" 
-            className="font-['Sao_Torpes'] text-2xl text-[var(--deep-blue)] hover:text-[var(--royal-blue)] transition-colors"
-          >
-            LW
-          </Link>
-          <div className="hidden md:flex items-center gap-8">
-            {['Projects', 'About', 'Contact'].map((item) => (
-              <Link
-                key={item}
-                href={`/#${item.toLowerCase()}`}
-                className={`font-['Romana_Light'] text-lg relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[var(--yellow)] after:scale-x-0 after:origin-right after:transition-transform hover:after:scale-x-100 hover:after:origin-left ${
-                  activeSection === item.toLowerCase() ? 'text-[var(--deep-blue)]' : 'text-[var(--royal-blue)]'
-                }`}
-              >
-                {item}
-              </Link>
-            ))}
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <Link 
+              href="/" 
+              className="text-3xl font-sao-torpes text-light-blue hover:text-mid-blue transition-colors"
+            >
+              LW
+            </Link>
+            <div className="flex gap-8">
+              {[
+                { href: '#projects', text: 'Projects' },
+                { href: '#skills', text: 'Skills' },
+                { href: '#contact', text: 'Contact' }
+              ].map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.href}
+                  className="text-light-blue hover:text-mid-blue transition-colors"
+                >
+                  {link.text}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </nav>
