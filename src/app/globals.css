@@ -113,11 +113,21 @@
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-forest text-base rounded-lg transition-all duration-300 hover:bg-forest/90;
+    @apply px-6 py-3 text-base rounded-lg transition-all duration-300;
+    background-color: #99BC85;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(153, 188, 133, 0.9);
   }
 
   .btn-secondary {
-    @apply px-6 py-3 bg-sage text-text rounded-lg transition-all duration-300 hover:bg-sage/90;
+    @apply px-6 py-3 text-text rounded-lg transition-all duration-300;
+    background-color: #E4EFE7;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(228, 239, 231, 0.9);
   }
 
   .font-sao-torpes {
