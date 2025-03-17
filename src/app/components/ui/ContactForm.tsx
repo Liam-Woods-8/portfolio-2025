@@ -27,6 +27,7 @@ export default function ContactForm() {
     email: '',
     message: ''
   });
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,16 +41,27 @@ export default function ContactForm() {
   };
 
   const renderFormField = ({ id, label, type, rows }: FormField) => {
+    const isFieldActive = focusedField === id || formData[id].length > 0;
+
     if (type === 'textarea') {
       return (
         <div key={id} className="mb-6 group">
-          <label htmlFor={id} className="block mb-2 text-text/90 group-hover:text-forest transition-colors">{label}</label>
+          <label 
+            htmlFor={id} 
+            className={`block mb-2 transition-colors duration-200 ${
+              isFieldActive ? 'text-forest' : 'text-text/90 group-hover:text-forest/70'
+            }`}
+          >
+            {label}
+          </label>
           <textarea
             id={id}
             name={id}
             rows={rows}
             value={formData[id]}
             onChange={handleChange}
+            onFocus={() => setFocusedField(id)}
+            onBlur={() => setFocusedField(null)}
             className="w-full px-4 py-3 bg-base border border-sage rounded-lg focus:outline-none focus:border-forest text-text/90"
             required
           />
@@ -59,13 +71,22 @@ export default function ContactForm() {
 
     return (
       <div key={id} className="mb-6 group">
-        <label htmlFor={id} className="block mb-2 text-text/90 group-hover:text-forest transition-colors">{label}</label>
+        <label 
+          htmlFor={id} 
+          className={`block mb-2 transition-colors duration-200 ${
+            isFieldActive ? 'text-forest' : 'text-text/90 group-hover:text-forest/70'
+          }`}
+        >
+          {label}
+        </label>
         <input
           type={type}
           id={id}
           name={id}
           value={formData[id]}
           onChange={handleChange}
+          onFocus={() => setFocusedField(id)}
+          onBlur={() => setFocusedField(null)}
           className="w-full px-4 py-3 bg-base border border-sage rounded-lg focus:outline-none focus:border-forest text-text/90"
           required
         />
