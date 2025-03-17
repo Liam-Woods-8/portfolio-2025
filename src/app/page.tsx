@@ -74,8 +74,8 @@ export default function Home() {
                   Full Stack Developer crafting exceptional digital experiences through innovative code and creative design solutions
                 </p>
                 <div className="flex gap-8">
-                  <a href="#projects" className="btn-primary">View Work</a>
-                  <a href="#contact" className="btn-secondary">Contact</a>
+                  <a href="#projects" className="btn-primary text-text">View Work</a>
+                  <a href="#contact" className="btn-secondary text-text">Contact</a>
                 </div>
               </div>
               <div className="relative">

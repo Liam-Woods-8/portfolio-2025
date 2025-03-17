@@ -34,17 +34,36 @@
   }
 
   .btn-primary {
-    @apply px-8 py-4 bg-mid-blue text-text font-romana-light transition-all duration-300;
+    @apply px-8 py-4 bg-mid-blue text-text font-romana-light transition-all duration-300 rounded-lg;
     &:hover {
-      @apply bg-purple shadow-lg;
+      @apply bg-purple shadow-lg transform -translate-y-1;
     }
   }
 
   .btn-secondary {
-    @apply px-8 py-4 bg-transparent border-2 border-mid-blue text-text font-romana-light transition-all duration-300;
+    @apply px-8 py-4 bg-transparent border-2 border-mid-blue text-text font-romana-light transition-all duration-300 rounded-lg;
     &:hover {
-      @apply bg-light-blue border-light-blue shadow-lg;
+      @apply bg-light-blue border-light-blue shadow-lg transform -translate-y-1;
     }
+  }
+
+  .form-input {
+    @apply w-full px-6 py-4 bg-light-blue/20 border-2 border-transparent rounded-lg font-romana-light transition-all duration-300 focus:outline-none focus:border-purple/50 focus:bg-light-blue/30;
+  }
+
+  .form-label {
+    @apply block mb-2 text-lg text-text/90 font-romana-light;
+  }
+
+  .form-group {
+    @apply relative mb-6;
+    &:hover .form-label {
+      @apply text-purple;
+    }
+  }
+
+  .form-submit {
+    @apply w-full px-8 py-4 bg-gradient-to-r from-mid-blue to-purple text-base font-romana-light transition-all duration-300 rounded-lg transform hover:-translate-y-1 hover:shadow-lg hover:from-purple hover:to-mid-blue;
   }
 
   .section-title {
@@ -73,8 +92,9 @@
   }
 
   .glass-effect {
-    @apply bg-light-blue/10 backdrop-blur-sm;
+    @apply bg-light-blue/10 backdrop-blur-sm rounded-2xl;
     border-left: 2px solid theme('colors.purple');
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   }
 
   .geometric-pattern {
