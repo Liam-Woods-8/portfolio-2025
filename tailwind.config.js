@@ -7,15 +7,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        base: '#FBFBFB',
-        'light-blue': '#E8F9FF',
-        'mid-blue': '#C4D9FF',
-        purple: '#C5BAFF',
-        text: '#2c3e50',
+        forest: '#99BC85',
+        sage: '#BFD8AF',
+        cream: '#D4E7C5',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        border: 'hsl(var(--border))',
       },
       fontFamily: {
         'sao-torpes': ['Sao Torpes', 'sans-serif'],
-        'romana-light': ['Romana Light', 'serif'],
+        'honey-salt': ['Honey Salt', 'sans-serif'],
+        'ramona': ['Ramona', 'serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -27,8 +29,7 @@ module.exports = {
         }
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #FBFBFB 0%, #E8F9FF 50%, #C4D9FF 100%)',
-        'gradient-secondary': 'linear-gradient(to right, #C5BAFF 0%, #C4D9FF 100%)',
+        'gradient-primary': 'linear-gradient(135deg, var(--background) 0%, var(--foreground) 100%)',
       },
     },
   },
