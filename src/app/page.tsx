@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import { useEffect, useRef } from 'react'
 import ContactForm from './components/ContactForm'
 
 const ImagePlaceholder = dynamic(() => import('./components/ImagePlaceholder'), {
@@ -28,6 +31,34 @@ const projects = [
 ];
 
 export default function Home() {
+  const projectRefs = useRef<(HTMLElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      projectRefs.current.forEach((ref, index) => {
+        if (!ref) return;
+        
+        const rect = ref.getBoundingClientRect();
+        const isInView = rect.top <= window.innerHeight * 0.5;
+        
+        if (isInView) {
+          ref.style.transform = 'translateY(0)';
+          ref.style.opacity = '1';
+          ref.style.zIndex = `${index + 1}`;
+        } else {
+          ref.style.transform = 'translateY(100px)';
+          ref.style.opacity = '0.5';
+          ref.style.zIndex = '0';
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -65,13 +96,17 @@ export default function Home() {
       <section id="projects" className="py-32 bg-gradient-to-b from-base via-light-blue/30 to-base">
         <div className="container mx-auto px-4">
           <h2 className="section-title">Projects</h2>
-          <div className="relative space-y-[-6rem] pt-8">
+          <div className="relative pt-8">
             {projects.map((project, index) => (
               <article 
                 key={index} 
-                className="card group rounded-2xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-xl relative bg-base"
+                ref={el => projectRefs.current[index] = el}
+                className="card group rounded-2xl transform transition-all duration-500 hover:shadow-xl relative bg-base mb-8"
                 style={{
-                  zIndex: projects.length - index,
+                  transform: 'translateY(100px)',
+                  opacity: 0.5,
+                  transition: 'all 0.6s ease-out',
+                  marginTop: index === 0 ? '0' : '-6rem',
                 }}
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
