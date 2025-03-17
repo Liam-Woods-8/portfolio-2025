@@ -29,7 +29,7 @@ const projects = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen font-romana-light">
+    <main className="min-h-screen">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center geometric-pattern">
         <div className="container mx-auto px-4 py-20">
@@ -39,7 +39,7 @@ export default function Home() {
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mt-16">
               <div>
-                <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-text/80">
+                <p className="text-2xl md:text-3xl leading-relaxed mb-8 text-text/90">
                   Full Stack Developer crafting exceptional digital experiences through innovative code and creative design solutions
                 </p>
                 <div className="flex gap-8">
@@ -71,10 +71,10 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                   <div className="order-2 md:order-1">
                     <h3 className="font-sao-torpes text-4xl mb-6 text-gradient">{project.title}</h3>
-                    <p className="text-lg mb-6 leading-relaxed text-text/80">{project.description}</p>
+                    <p className="text-lg mb-6 leading-relaxed text-text/90">{project.description}</p>
                     <div className="flex flex-wrap gap-3 mb-8">
                       {project.technologies.map((tech, i) => (
-                        <span key={i} className="px-4 py-2 bg-light-blue text-text text-sm">{tech}</span>
+                        <span key={i} className="px-4 py-2 bg-light-blue/40 text-text text-sm">{tech}</span>
                       ))}
                     </div>
                     <Link href={project.link} className="hover-reveal inline-block text-lg">
@@ -120,7 +120,7 @@ export default function Home() {
             ].map((category, index) => (
               <div key={index} className="glass-effect p-8">
                 <h3 className="font-sao-torpes text-3xl mb-6 text-gradient">{category.title}</h3>
-                <ul className="space-y-4 text-lg text-text/80">
+                <ul className="space-y-4 text-lg text-text/90">
                   {category.skills.map((skill, i) => (
                     <li key={i}>{skill}</li>
                   ))}
@@ -145,7 +145,7 @@ export default function Home() {
       <footer className="py-12 border-t border-purple/20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <p className="text-lg text-text/80">© 2024 Liam Woods</p>
+            <p className="text-lg text-text/90">© 2024 Liam Woods</p>
             <div className="flex gap-12">
               {[
                 { href: "https://github.com/yourusername", text: "GitHub" },
@@ -155,7 +155,7 @@ export default function Home() {
                 <Link 
                   key={index}
                   href={link.href} 
-                  className="hover-reveal text-lg text-text/80"
+                  className="hover-reveal text-lg text-text/90"
                 >
                   {link.text}
                 </Link>

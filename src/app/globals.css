@@ -20,9 +20,7 @@
 
 @layer base {
   body {
-    @apply bg-base text-text;
-    @apply bg-gradient-primary bg-[length:400%_400%];
-    animation: gradientBG 15s ease infinite;
+    @apply bg-base text-text font-romana-light;
   }
 }
 
@@ -36,16 +34,16 @@
   }
 
   .btn-primary {
-    @apply px-8 py-4 bg-purple text-base font-bold transition-all duration-300;
+    @apply px-8 py-4 bg-mid-blue text-text font-romana-light transition-all duration-300;
     &:hover {
-      @apply bg-gradient-secondary shadow-lg;
+      @apply bg-purple shadow-lg;
     }
   }
 
   .btn-secondary {
-    @apply px-8 py-4 bg-transparent border-2 border-purple text-purple font-bold transition-all duration-300;
+    @apply px-8 py-4 bg-transparent border-2 border-mid-blue text-text font-romana-light transition-all duration-300;
     &:hover {
-      @apply bg-gradient-secondary text-base shadow-lg border-transparent;
+      @apply bg-light-blue border-light-blue shadow-lg;
     }
   }
 
@@ -53,26 +51,30 @@
     @apply font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-16 relative;
     &::after {
       content: '';
-      @apply absolute -bottom-4 left-0 w-24 h-1 bg-gradient-secondary transition-all duration-300;
+      @apply absolute -bottom-4 left-0 w-24 h-1 bg-purple transition-all duration-300;
+    }
+    &:hover::after {
+      @apply bg-mid-blue;
     }
   }
 
   .card {
-    @apply p-8 bg-base/90 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl;
+    @apply p-8 bg-light-blue/20 backdrop-blur-sm transition-all duration-500 hover:shadow-2xl;
     border-bottom: 2px solid transparent;
     &:hover {
+      @apply bg-light-blue/30;
       border-image: linear-gradient(to right, theme('colors.purple'), theme('colors.mid-blue')) 1;
     }
   }
 
   .text-gradient {
-    @apply bg-gradient-secondary bg-clip-text text-transparent;
+    background: linear-gradient(135deg, theme('colors.purple'), theme('colors.mid-blue'));
+    @apply bg-clip-text text-transparent;
   }
 
   .glass-effect {
-    @apply bg-base/95 backdrop-blur-sm;
-    border-left: 2px solid;
-    border-image: linear-gradient(to bottom, theme('colors.purple'), theme('colors.mid-blue')) 1;
+    @apply bg-light-blue/10 backdrop-blur-sm;
+    border-left: 2px solid theme('colors.purple');
   }
 
   .geometric-pattern {
@@ -85,17 +87,16 @@
     &::before {
       content: '';
       @apply absolute inset-0;
-      background: linear-gradient(to bottom, transparent, theme('colors.base'));
+      background: linear-gradient(to bottom, transparent, theme('colors.base') 90%);
       pointer-events: none;
     }
   }
 
   .hover-reveal {
-    @apply relative overflow-hidden;
+    @apply relative overflow-hidden font-romana-light;
     &::after {
       content: '';
-      @apply absolute bottom-0 left-0 w-full h-0.5;
-      background: linear-gradient(to right, theme('colors.purple'), theme('colors.mid-blue'));
+      @apply absolute bottom-0 left-0 w-full h-0.5 bg-purple;
       transform: scaleX(0);
       transform-origin: right;
       transition: transform 0.3s ease;
@@ -121,18 +122,17 @@
 
 .loading {
   @apply relative overflow-hidden;
-}
-
-.loading::after {
-  content: '';
-  @apply absolute inset-0;
-  background: linear-gradient(90deg, 
-    transparent 0%,
-    theme('colors.light-blue') 50%,
-    transparent 100%
-  );
-  transform: translateX(-100%);
-  animation: loading 1.5s infinite;
+  &::after {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(90deg, 
+      transparent 0%,
+      theme('colors.light-blue') 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    animation: loading 1.5s infinite;
+  }
 }
 
 @keyframes loading {
