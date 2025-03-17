@@ -107,78 +107,97 @@
   }
 
   .font-romana-light {
-    font-family: 'Romana Light', serif;
+    font-family: 'Ramona Light', serif;
   }
 
   .form-input {
-    @apply w-full px-6 py-4 bg-light-blue/20 border-2 border-transparent rounded-lg font-romana-light transition-all duration-300 focus:outline-none focus:border-purple/50 focus:bg-light-blue/30;
+    @apply w-full px-6 py-4 border-2 border-transparent rounded-lg font-romana-light transition-all duration-300 focus:outline-none;
+    background-color: var(--sage);
+    opacity: 0.2;
+  }
+
+  .form-input:focus {
+    border-color: var(--forest);
+    background-color: var(--sage);
+    opacity: 0.3;
   }
 
   .form-label {
-    @apply block mb-2 text-lg text-text/90 font-romana-light;
+    @apply block mb-2 text-lg font-romana-light;
+    color: rgba(44, 62, 45, 0.9); /* var(--text) with 0.9 opacity */
   }
 
   .form-group {
     @apply relative mb-6;
-    &:hover .form-label {
-      @apply text-purple;
-    }
+  }
+
+  .form-group:hover .form-label {
+    color: var(--forest);
   }
 
   .form-submit {
-    @apply w-full px-8 py-4 bg-gradient-to-r from-mid-blue to-purple text-base font-romana-light transition-all duration-300 rounded-lg transform hover:-translate-y-1 hover:shadow-lg hover:from-purple hover:to-mid-blue;
+    @apply w-full px-8 py-4 font-romana-light transition-all duration-300 rounded-lg transform hover:-translate-y-1 hover:shadow-lg;
+    background: linear-gradient(to right, var(--sage), var(--forest));
+    color: var(--base);
+  }
+
+  .form-submit:hover {
+    background: linear-gradient(to right, var(--forest), var(--sage));
   }
 
   .section-title {
     @apply font-sao-torpes text-6xl md:text-7xl lg:text-8xl mb-16 relative;
-    &::after {
-      content: '';
-      @apply absolute -bottom-4 left-0 w-24 h-1 bg-purple transition-all duration-300;
-    }
-    &:hover::after {
-      @apply bg-mid-blue;
-    }
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, theme('colors.purple'), theme('colors.mid-blue'));
-    @apply bg-clip-text text-transparent;
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-4 left-0 w-24 h-1 transition-all duration-300;
+    background-color: var(--forest);
+  }
+
+  .section-title:hover::after {
+    background-color: var(--sage);
   }
 
   .glass-effect {
-    @apply bg-light-blue/10 backdrop-blur-sm rounded-2xl;
-    border-left: 2px solid theme('colors.purple');
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    @apply backdrop-blur-sm rounded-2xl;
+    background-color: rgba(228, 239, 231, 0.1); /* var(--sage) with 0.1 opacity */
+    border-left: 2px solid var(--forest);
+    box-shadow: 0 8px 32px 0 rgba(44, 62, 45, 0.07); /* var(--text) with 0.07 opacity */
   }
 
   .geometric-pattern {
-    @apply bg-base relative;
+    @apply relative;
+    background-color: var(--base);
     background-image: 
-      linear-gradient(theme('colors.light-blue') 1px, transparent 1px),
-      linear-gradient(90deg, theme('colors.light-blue') 1px, transparent 1px);
+      linear-gradient(var(--sage) 1px, transparent 1px),
+      linear-gradient(90deg, var(--sage) 1px, transparent 1px);
     background-size: 50px 50px;
+  }
 
-    &::before {
-      content: '';
-      @apply absolute inset-0;
-      background: linear-gradient(to bottom, transparent, theme('colors.base') 90%);
-      pointer-events: none;
-    }
+  .geometric-pattern::before {
+    content: '';
+    @apply absolute inset-0;
+    background: linear-gradient(to bottom, transparent, var(--base) 90%);
+    pointer-events: none;
   }
 
   .hover-reveal {
     @apply relative overflow-hidden font-romana-light;
-    &::after {
-      content: '';
-      @apply absolute bottom-0 left-0 w-full h-0.5 bg-purple;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.3s ease;
-    }
-    &:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
-    }
+  }
+
+  .hover-reveal::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5;
+    background-color: var(--forest);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .hover-reveal:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
   }
 }
 
@@ -196,17 +215,18 @@
 
 .loading {
   @apply relative overflow-hidden;
-  &::after {
-    content: '';
-    @apply absolute inset-0;
-    background: linear-gradient(90deg, 
-      transparent 0%,
-      theme('colors.light-blue') 50%,
-      transparent 100%
-    );
-    transform: translateX(-100%);
-    animation: loading 1.5s infinite;
-  }
+}
+
+.loading::after {
+  content: '';
+  @apply absolute inset-0;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    var(--sage) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: loading 1.5s infinite;
 }
 
 @keyframes loading {
