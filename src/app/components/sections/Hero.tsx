@@ -20,12 +20,12 @@ export default function Hero() {
                 Full Stack Developer crafting exceptional digital experiences through innovative code and creative design solutions
               </p>
               <div className="flex gap-8">
-                <a href="#projects" className="btn-primary text-text">View Work</a>
-                <a href="#contact" className="btn-secondary text-text">Contact</a>
+                <a href="#projects" className="btn-primary">View Work</a>
+                <a href="#contact" className="btn-secondary">Contact</a>
               </div>
             </div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple/20 via-mid-blue/20 to-light-blue/20 rounded-2xl -z-10 blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-forest/20 via-sage/20 to-cream/20 rounded-2xl -z-10 blur-xl"></div>
               <ImagePlaceholder
                 width={500}
                 height={500}

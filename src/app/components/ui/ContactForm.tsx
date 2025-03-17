@@ -50,7 +50,7 @@ export default function ContactForm() {
             rows={rows}
             value={formData[id]}
             onChange={handleChange}
-            className="w-full px-4 py-3 bg-base border border-purple/20 rounded-lg focus:outline-none focus:border-purple/40 text-text/90"
+            className="w-full px-4 py-3 bg-base border border-sage rounded-lg focus:outline-none focus:border-forest text-text/90"
             required
           />
         </div>
@@ -66,7 +66,7 @@ export default function ContactForm() {
           name={id}
           value={formData[id]}
           onChange={handleChange}
-          className="w-full px-4 py-3 bg-base border border-purple/20 rounded-lg focus:outline-none focus:border-purple/40 text-text/90"
+          className="w-full px-4 py-3 bg-base border border-sage rounded-lg focus:outline-none focus:border-forest text-text/90"
           required
         />
       </div>
@@ -78,7 +78,7 @@ export default function ContactForm() {
       {FORM_FIELDS.map(renderFormField)}
       <button
         type="submit"
-        className="w-full btn-primary text-text"
+        className="w-full btn-primary"
       >
         Send Message
       </button>

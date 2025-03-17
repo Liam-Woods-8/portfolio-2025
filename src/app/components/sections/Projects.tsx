@@ -39,7 +39,7 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-32 bg-gradient-to-b from-base via-light-blue/30 to-base">
+    <section id="projects" className="py-32 bg-gradient-to-b from-base via-sage/30 to-base">
       <div className="container mx-auto px-4">
         <h2 className="section-title">Projects</h2>
         <div className="relative pt-8">
@@ -61,7 +61,7 @@ export default function Projects() {
                   <p className="text-lg mb-6 leading-relaxed text-text/90">{project.description}</p>
                   <div className="flex flex-wrap gap-3 mb-8">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="px-4 py-2 bg-light-blue/40 text-text text-sm rounded-full">{tech}</span>
+                      <span key={i} className="px-4 py-2 bg-sage/40 text-text text-sm rounded-full">{tech}</span>
                     ))}
                   </div>
                   <Link href={project.link} className="hover-reveal inline-block text-lg">
@@ -70,7 +70,7 @@ export default function Projects() {
                 </div>
                 <div className="order-1 md:order-2">
                   <div className="relative rounded-xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-purple/10 to-mid-blue/10 -z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-tr from-forest/10 to-sage/10 -z-10"></div>
                     <ImagePlaceholder
                       width={600}
                       height={400}

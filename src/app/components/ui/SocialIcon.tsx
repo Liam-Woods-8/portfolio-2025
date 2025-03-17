@@ -32,7 +32,7 @@ export default function SocialIcon({ type, href }: SocialIconProps) {
   return (
     <a 
       href={href}
-      className="text-text/80 hover:text-purple transition-colors duration-300"
+      className="text-text/80 hover:text-forest transition-colors duration-300"
       target={type !== 'email' ? '_blank' : undefined}
       rel={type !== 'email' ? 'noopener noreferrer' : undefined}
     >
