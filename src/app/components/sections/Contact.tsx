@@ -7,7 +7,7 @@ export default function Contact() {
     <section id="contact" className="py-32 bg-gradient-to-b from-white/80 via-sage/10 to-white/80">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-20 sm:mb-32 md:mb-40">Contact</h2>
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <form className="space-y-8">
             <div className="relative">
               <input

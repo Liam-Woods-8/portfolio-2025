@@ -11,7 +11,7 @@ export default function Skills() {
           {SKILLS.map((category, index) => (
             <div 
               key={index} 
-              className="glass-effect p-8 rounded-2xl bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 hover:animate-shake"
+              className="glass-effect p-8 rounded-2xl bg-white/90 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:animate-shake"
             >
               <h3 className="font-sao-torpes text-2xl sm:text-3xl md:text-4xl mb-6 text-gradient">{category.title}</h3>
               <ul className="space-y-4">

@@ -31,9 +31,10 @@ module.exports = {
           '50%': { transform: 'translateY(-10px)' },
         },
         shake: {
-          '0%, 100%': { transform: 'translateX(0)' },
-          '25%': { transform: 'translateX(-5px)' },
-          '75%': { transform: 'translateX(5px)' },
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-5deg)' },
+          '50%': { transform: 'rotate(5deg)' },
+          '75%': { transform: 'rotate(-5deg)' },
         }
       },
       backgroundImage: {
