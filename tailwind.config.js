@@ -23,11 +23,17 @@ module.exports = {
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
+        'shake': 'shake 0.5s ease-in-out',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        shake: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '25%': { transform: 'translateX(-5px)' },
+          '75%': { transform: 'translateX(5px)' },
         }
       },
       backgroundImage: {
