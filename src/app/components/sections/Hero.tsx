@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-start px-4 md:px-8 lg:px-16 relative overflow-hidden pt-24 md:pt-32">
@@ -16,17 +18,29 @@ export default function Hero() {
             <p className="text-lg sm:text-xl md:text-2xl mb-8 font-palugada max-w-2xl">
               Full Stack Developer crafting elegant solutions through code
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#projects" className="btn-primary text-base hover:opacity-90">
-                View Work
-              </a>
-              <a href="#contact" className="btn-secondary text-base hover:opacity-90">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <Link href="#contact" className="btn-primary">
                 Contact
-              </a>
+              </Link>
+              <Link href="#projects" className="btn-secondary">
+                View Projects
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </section>
   );
+}
+
+.btn-primary {
+  @apply px-8 py-3 bg-forest text-white rounded-full font-palugada text-lg sm:text-xl 
+         hover:bg-sage/90 hover:text-white transition-all duration-300 
+         shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+}
+
+.btn-secondary {
+  @apply px-8 py-3 bg-transparent border-2 border-forest text-forest rounded-full 
+         font-palugada text-lg sm:text-xl hover:bg-forest hover:text-white 
+         transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
 } 
