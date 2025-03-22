@@ -18,7 +18,7 @@ export default function Contact() {
               />
               <label
                 htmlFor="name"
-                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-paulugada"
+                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-palugada"
               >
                 Name
               </label>
@@ -32,7 +32,7 @@ export default function Contact() {
               />
               <label
                 htmlFor="email"
-                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-paulugada"
+                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-palugada"
               >
                 Email
               </label>
@@ -46,14 +46,14 @@ export default function Contact() {
               ></textarea>
               <label
                 htmlFor="message"
-                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-paulugada"
+                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-palugada"
               >
                 Message
               </label>
             </div>
             <button
               type="submit"
-              className="btn-primary w-full font-paulugada"
+              className="btn-primary w-full font-palugada"
             >
               Send Message
             </button>

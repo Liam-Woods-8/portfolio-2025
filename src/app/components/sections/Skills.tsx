@@ -13,7 +13,7 @@ export default function Skills() {
               <h3 className="font-sao-torpes text-2xl sm:text-3xl md:text-4xl mb-6 text-gradient">{category.title}</h3>
               <ul className="space-y-4">
                 {category.skills.map((skill: string, i: number) => (
-                  <li key={i} className="text-base sm:text-lg text-text/90 font-paulugada">{skill}</li>
+                  <li key={i} className="text-lg sm:text-xl text-text/80 font-palugada">{skill}</li>
                 ))}
               </ul>
             </div>

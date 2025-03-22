@@ -56,15 +56,15 @@ const Navigation = () => {
                 { href: '#skills', text: 'Skills' },
                 { href: '#contact', text: 'Contact' }
               ].map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-[#1a472a] hover:text-[#2d5a3f] transition-colors font-paulugada ${
-                    activeSection === item.href ? 'font-semibold' : ''
+                  className={`text-lg font-palugada transition-colors duration-300 hover:text-forest ${
+                    activeSection === item.href ? 'text-forest font-semibold' : 'text-text/80'
                   }`}
                 >
                   {item.text}
-                </a>
+                </Link>
               ))}
             </div>
             {/* Mobile Menu Button */}

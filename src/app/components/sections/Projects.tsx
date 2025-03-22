@@ -60,10 +60,15 @@ export default function Projects() {
               <div className="project-content">
                 <div className="project-text">
                   <h3 className="font-sao-torpes text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gradient">{project.title}</h3>
-                  <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-text/90 font-paulugada">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
+                  <p className="text-text/80 font-palugada">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mt-4">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-sage/40 text-text text-sm rounded-full font-paulugada">{tech}</span>
+                      <span
+                        key={i}
+                        className="px-3 py-1 bg-sage/10 text-forest rounded-full text-sm font-palugada"
+                      >
+                        {tech}
+                      </span>
                     ))}
                   </div>
                   <Link href={project.link} className="hover-reveal inline-block text-base sm:text-lg font-paulugada">

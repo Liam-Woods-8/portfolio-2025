@@ -19,7 +19,7 @@ module.exports = {
         'sao-torpes': ['Sao Torpes', 'sans-serif'],
         'honey-salt': ['Honey Salt', 'sans-serif'],
         'ramona': ['Ramona', 'serif'],
-        'paulugada': ['Paulugada', 'sans-serif'],
+        'palugada': ['Palugada', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
