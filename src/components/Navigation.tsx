@@ -6,6 +6,7 @@ import Link from 'next/link';
 const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,44 +35,83 @@ const Navigation = () => {
   return (
     <>
       {/* Main Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'py-4 bg-base/80 backdrop-blur-sm' : 'py-6'
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between">
-            <a 
+          <div className="flex justify-between items-center h-20">
+            <a
               href="https://www.linkedin.com/in/liamantoniowoods"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-3xl font-sao-torpes text-forest hover:text-sage transition-colors"
+              className="text-3xl font-sao-torpes text-[#1a472a] hover:text-[#2d5a3f] transition-colors"
             >
               LW
             </a>
-            <div className="flex gap-8">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-8">
               {[
+                { href: '#home', text: 'Home' },
                 { href: '#projects', text: 'Projects' },
                 { href: '#skills', text: 'Skills' },
                 { href: '#contact', text: 'Contact' }
-              ].map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.href}
-                  className="font-bold text-forest hover:text-sage transition-colors"
+              ].map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`text-[#1a472a] hover:text-[#2d5a3f] transition-colors ${
+                    activeSection === item.href ? 'font-semibold' : ''
+                  }`}
                 >
-                  {link.text}
-                </Link>
+                  {item.text}
+                </a>
               ))}
             </div>
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden p-2 rounded-lg hover:bg-sage/10 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              <div className="w-6 h-0.5 bg-forest mb-1.5 transition-transform duration-300" 
+                   style={{ transform: isMobileMenuOpen ? 'rotate(45deg) translate(2px, 2px)' : 'none' }} />
+              <div className="w-6 h-0.5 bg-forest mb-1.5 transition-opacity duration-300"
+                   style={{ opacity: isMobileMenuOpen ? 0 : 1 }} />
+              <div className="w-6 h-0.5 bg-forest transition-transform duration-300"
+                   style={{ transform: isMobileMenuOpen ? 'rotate(-45deg) translate(2px, -2px)' : 'none' }} />
+            </button>
           </div>
         </div>
       </nav>
 
+      {/* Mobile Navigation */}
+      <div className={`fixed inset-0 z-40 bg-base/95 backdrop-blur-sm transition-transform duration-300 md:hidden ${
+        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}>
+        <div className="container mx-auto px-4 py-20">
+          <div className="flex flex-col gap-8">
+            {['Home', 'Projects', 'Skills', 'Contact'].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className={`text-3xl text-[#1a472a] hover:text-[#2d5a3f] transition-colors ${
+                  activeSection === item.toLowerCase() ? 'font-semibold' : ''
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Side Navigation Dots */}
       <div className="fixed right-8 top-1/2 -translate-y-1/2 space-y-6 hidden lg:flex flex-col">
         {['home', 'projects', 'skills', 'contact'].map((section) => (
-          <Link
+          <a
             key={section}
-            href={`/#${section}`}
+            href={`#${section}`}
             className="group relative flex items-center"
           >
             <span className={`w-3 h-3 rounded-full transition-all duration-300 ${
@@ -82,40 +122,8 @@ const Navigation = () => {
             <span className="absolute right-full mr-4 py-1 px-2 text-sm font-bold text-forest opacity-0 -translate-x-2 transition-all group-hover:opacity-100 group-hover:translate-x-0 capitalize">
               {section}
             </span>
-          </Link>
+          </a>
         ))}
-      </div>
-
-      {/* Mobile Menu Button */}
-      <button
-        className="fixed top-6 right-4 z-50 md:hidden bg-base p-2 rounded-full shadow-md"
-        onClick={() => document.body.classList.toggle('mobile-menu-open')}
-      >
-        <div className="w-6 h-0.5 bg-forest mb-1.5" />
-        <div className="w-6 h-0.5 bg-forest mb-1.5" />
-        <div className="w-6 h-0.5 bg-forest" />
-      </button>
-
-      {/* Mobile Menu */}
-      <div className="fixed inset-0 bg-base/95 backdrop-blur-sm z-40 transform transition-transform duration-300 md:hidden mobile-menu">
-        <div className="container mx-auto px-4 py-20">
-          <div className="flex flex-col gap-8">
-            {['Home', 'Projects', 'Skills', 'Contact'].map((item) => (
-              <Link
-                key={item}
-                href={`/#${item.toLowerCase()}`}
-                className={`font-bold text-3xl ${
-                  activeSection === item.toLowerCase()
-                    ? 'text-forest'
-                    : 'text-sage'
-                }`}
-                onClick={() => document.body.classList.remove('mobile-menu-open')}
-              >
-                {item}
-              </Link>
-            ))}
-          </div>
-        </div>
       </div>
     </>
   );

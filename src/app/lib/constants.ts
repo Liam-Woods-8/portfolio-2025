@@ -1,22 +1,27 @@
-export const PROJECTS = [
+export interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  link: string;
+  image: string;
+}
+
+export const PROJECTS: Project[] = [
   {
-    title: "Project One",
-    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
-    technologies: ["React", "Node.js", "MongoDB"],
-    link: "/projects/1"
+    title: "Project 1",
+    description: "Description of project 1",
+    technologies: ["React", "TypeScript", "Tailwind"],
+    link: "https://github.com/yourusername/project1",
+    image: "/images/project1.jpg"
   },
   {
-    title: "Project Two",
-    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
-    technologies: ["Next.js", "TypeScript", "Tailwind"],
-    link: "/projects/2"
+    title: "Project 2",
+    description: "Description of project 2",
+    technologies: ["Next.js", "Node.js", "MongoDB"],
+    link: "https://github.com/yourusername/project2",
+    image: "/images/project2.jpg"
   },
-  {
-    title: "Project Three",
-    description: "A brief description of the project and the technologies used. This should be a detailed explanation of what the project accomplishes and how it was built.",
-    technologies: ["Python", "Django", "PostgreSQL"],
-    link: "/projects/3"
-  }
+  // Add more projects as needed
 ];
 
 export const SKILLS = [

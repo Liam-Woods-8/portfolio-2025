@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { PROJECTS } from '@/app/lib/constants';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const ImagePlaceholder = dynamic(() => import('../ui/ImagePlaceholder'), {
   ssr: false
@@ -39,10 +40,10 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-32 bg-gradient-to-b from-base via-sage/30 to-base">
+    <section id="projects" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-base via-sage/30 to-base">
       <div className="container mx-auto px-4">
-        <h2 className="section-title mb-40">Projects</h2>
-        <div className="relative pt-16">
+        <h2 className="section-title mb-20 sm:mb-32 md:mb-40">Projects</h2>
+        <div className="relative pt-8 sm:pt-12 md:pt-16">
           {PROJECTS.map((project, index) => (
             <article 
               key={index} 
@@ -52,31 +53,33 @@ export default function Projects() {
                 transform: 'translateY(100px)',
                 opacity: 0.5,
                 transition: 'all 0.6s ease-out',
-                marginTop: index === 0 ? '0' : '-6rem',
+                marginTop: index === 0 ? '0' : '-4rem',
               }}
             >
               <div className="project-content">
                 <div className="project-text">
-                  <h3 className="font-sao-torpes text-3xl md:text-4xl mb-6 text-gradient">{project.title}</h3>
-                  <p className="text-base md:text-lg mb-6 leading-relaxed text-text/90">{project.description}</p>
-                  <div className="flex flex-wrap gap-3 mb-8">
+                  <h3 className="font-sao-torpes text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gradient">{project.title}</h3>
+                  <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-text/90">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="px-3 md:px-4 py-1.5 md:py-2 bg-sage/40 text-text text-sm rounded-full">{tech}</span>
+                      <span key={i} className="px-3 py-1.5 bg-sage/40 text-text text-sm rounded-full">{tech}</span>
                     ))}
                   </div>
-                  <Link href={project.link} className="hover-reveal inline-block text-base md:text-lg">
+                  <Link href={project.link} className="hover-reveal inline-block text-base sm:text-lg">
                     View Project
                   </Link>
                 </div>
                 <div className="project-image">
-                  <div className="relative rounded-xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-forest/10 to-sage/10 -z-10"></div>
-                    <ImagePlaceholder
-                      width={600}
-                      height={400}
-                      text={project.title}
-                      className="w-full aspect-video object-cover rounded-xl"
+                  <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] overflow-hidden rounded-lg">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-center transform hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 70vw"
+                      priority={index === 0}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
               </div>
