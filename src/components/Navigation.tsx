@@ -9,13 +9,16 @@ export default function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'projects', 'skills', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { top, bottom } = element.getBoundingClientRect();
-          if (top <= scrollPosition && bottom > scrollPosition) {
+          const elementTop = top + window.scrollY;
+          const elementBottom = bottom + window.scrollY;
+
+          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
             setActiveSection(section);
             break;
           }
@@ -24,6 +27,7 @@ export default function Navigation() {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
