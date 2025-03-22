@@ -4,9 +4,9 @@ import { SKILLS } from '@/app/lib/constants';
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-32 bg-gradient-to-b from-base via-mid-blue/10 to-base">
+    <section id="skills" className="py-32 bg-gradient-to-b from-white/80 via-sage/10 to-white/80">
       <div className="container mx-auto px-4">
-        <h2 className="section-title">Skills</h2>
+        <h2 className="section-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-20 sm:mb-32 md:mb-40">Skills</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {SKILLS.map((category, index) => (
             <div key={index} className="glass-effect p-8">

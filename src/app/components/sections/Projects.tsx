@@ -40,9 +40,9 @@ export default function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-base via-sage/30 to-base">
+    <section id="projects" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-white/80 via-sage/10 to-white/80">
       <div className="container mx-auto px-4">
-        <h2 className="section-title mb-20 sm:mb-32 md:mb-40">Projects</h2>
+        <h2 className="section-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-20 sm:mb-32 md:mb-40">Projects</h2>
         <div className="relative pt-8 sm:pt-12 md:pt-16">
           {PROJECTS.map((project, index) => (
             <article 

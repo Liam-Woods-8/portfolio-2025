@@ -47,6 +47,31 @@
     background-color: #FFFFFF;
     color: #333333;
     font-family: 'Ramona', sans-serif;
+    background-image: 
+      radial-gradient(circle at 0% 0%, rgba(191, 216, 175, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 100% 0%, rgba(153, 188, 133, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(212, 231, 197, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(191, 216, 175, 0.15) 0%, transparent 50%);
+    background-attachment: fixed;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, rgba(153, 188, 133, 0.03) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(153, 188, 133, 0.03) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(153, 188, 133, 0.03) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(153, 188, 133, 0.03) 75%);
+    background-size: 100px 100px;
+    background-position: 0 0, 0 50px, 50px -50px, -50px 0px;
+    pointer-events: none;
+    z-index: 0;
   }
 
   /* Custom Scrollbar */
@@ -179,14 +204,7 @@
   }
 
   .geometric-pattern {
-    background-image: 
-      linear-gradient(45deg, #99BC85 25%, transparent 25%),
-      linear-gradient(-45deg, #99BC85 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, #99BC85 75%),
-      linear-gradient(-45deg, transparent 75%, #99BC85 75%);
-    background-size: 20px 20px;
-    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-    opacity: 0.1;
+    display: none;
   }
 
   .slide-in-left {
@@ -298,5 +316,24 @@
 
   .project-image {
     @apply order-1 md:order-2;
+  }
+}
+
+@layer components {
+  /* Update section backgrounds to be more subtle */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+    z-index: -1;
   }
 }
