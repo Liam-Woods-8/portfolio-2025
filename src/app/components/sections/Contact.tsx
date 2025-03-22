@@ -36,7 +36,7 @@ export default function Contact() {
     <section id="contact" className="py-16 sm:py-24 md:py-32">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-12 sm:mb-16 md:mb-24">Contact</h2>
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-[90%] mx-auto">
           <form 
             id="contact-form" 
             className="contact-form space-y-6"
