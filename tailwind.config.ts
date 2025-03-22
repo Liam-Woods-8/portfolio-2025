@@ -11,13 +11,14 @@ const config: Config = {
       colors: {
         'base': '#FDFAF6',
         'cream': '#FAF1E6',
-        'sage': '#E4EFE7',
-        'forest': '#99BC85',
-        'text': '#2C3E2D',
+        'sage': '#76c892',
+        'forest': '#76c892',
+        'mid-blue': '#76c892',
+        'text': '#333333',
       },
       gradientColorStops: {
-        'forest': '#99BC85',
-        'sage': '#E4EFE7',
+        'forest': '#76c892',
+        'sage': '#76c892',
         'cream': '#FAF1E6',
       },
       fontFamily: {
@@ -25,6 +26,21 @@ const config: Config = {
         'ramona': ['Ramona', 'sans-serif'],
         'ramona-light': ['Ramona Light', 'sans-serif'],
       },
+      keyframes: {
+        shake: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(-5deg)' },
+          '75%': { transform: 'rotate(5deg)' }
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        }
+      },
+      animation: {
+        'shake': 'shake 0.5s ease-in-out',
+        'fade-in': 'fade-in 0.5s ease-in-out'
+      }
     },
   },
   plugins: [],
