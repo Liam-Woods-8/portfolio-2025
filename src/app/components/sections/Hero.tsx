@@ -19,11 +19,11 @@ export default function Hero() {
               Full Stack Developer crafting elegant solutions through code
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <Link href="#contact" className="btn-primary">
-                Contact
-              </Link>
               <Link href="#projects" className="btn-secondary">
                 View Projects
+              </Link>
+              <Link href="#contact" className="btn-primary text-forest hover:text-white">
+                Contact
               </Link>
             </div>
           </div>
