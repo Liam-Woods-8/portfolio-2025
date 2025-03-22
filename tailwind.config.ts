@@ -12,11 +12,11 @@ const config: Config = {
         'base': '#FDFAF6',
         'cream': '#FAF1E6',
         'sage': '#E4EFE7',
-        'forest': '#76c892',
+        'forest': '#99BC85',
         'text': '#2C3E2D',
       },
       gradientColorStops: {
-        'forest': '#76c892',
+        'forest': '#99BC85',
         'sage': '#E4EFE7',
         'cream': '#FAF1E6',
       },
