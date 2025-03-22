@@ -43,7 +43,7 @@ export default function Projects() {
     <section id="projects" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-white/80 via-sage/10 to-white/80">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-8 sm:mb-12 md:mb-16">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
+        <div className="relative pt-8 sm:pt-12 md:pt-16">
           {PROJECTS.map((project, index) => (
             <article 
               key={index} 
