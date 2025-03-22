@@ -195,7 +195,15 @@
     @apply px-8 py-3 bg-white rounded-full font-palugada text-lg sm:text-xl 
            hover:bg-forest hover:text-white transition-all duration-300 
            shadow-lg hover:shadow-xl transform hover:-translate-y-1 border-2 border-forest;
-    color: #76c892 !important;
+    color: #76c892;
+  }
+
+  /* Apply the same styles to the Send Message button */
+  .contact-form button[type="submit"] {
+    @apply px-8 py-3 bg-white rounded-full font-palugada text-lg sm:text-xl 
+           hover:bg-forest hover:text-white transition-all duration-300 
+           shadow-lg hover:shadow-xl transform hover:-translate-y-1 border-2 border-forest;
+    color: #76c892;
   }
 
   .section-title {
