@@ -59,7 +59,7 @@ const Navigation = () => {
                 <a
                   key={item.href}
                   href={item.href}
-                  className={`text-[#1a472a] hover:text-[#2d5a3f] transition-colors ${
+                  className={`text-[#1a472a] hover:text-[#2d5a3f] transition-colors font-paulugada ${
                     activeSection === item.href ? 'font-semibold' : ''
                   }`}
                 >

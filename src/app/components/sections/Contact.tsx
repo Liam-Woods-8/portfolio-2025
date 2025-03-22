@@ -9,37 +9,52 @@ export default function Contact() {
         <h2 className="section-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl mb-20 sm:mb-32 md:mb-40">Contact</h2>
         <div className="max-w-2xl mx-auto">
           <form className="space-y-8">
-            <div className="space-y-2">
-              <label htmlFor="name" className="block text-lg font-romana-light transition-colors duration-300 group">
+            <div className="relative">
+              <input
+                type="text"
+                id="name"
+                className="peer w-full px-4 py-3 bg-white/50 border border-sage/30 rounded-lg focus:outline-none focus:border-forest transition-colors"
+                placeholder=" "
+              />
+              <label
+                htmlFor="name"
+                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-paulugada"
+              >
                 Name
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-2 mt-1 bg-white/80 border border-sage/30 rounded-lg focus:outline-none focus:border-forest transition-colors duration-300 group-hover:text-forest"
-                />
               </label>
             </div>
-            <div className="space-y-2">
-              <label htmlFor="email" className="block text-lg font-romana-light transition-colors duration-300 group">
+            <div className="relative">
+              <input
+                type="email"
+                id="email"
+                className="peer w-full px-4 py-3 bg-white/50 border border-sage/30 rounded-lg focus:outline-none focus:border-forest transition-colors"
+                placeholder=" "
+              />
+              <label
+                htmlFor="email"
+                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-paulugada"
+              >
                 Email
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 mt-1 bg-white/80 border border-sage/30 rounded-lg focus:outline-none focus:border-forest transition-colors duration-300 group-hover:text-forest"
-                />
               </label>
             </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="block text-lg font-romana-light transition-colors duration-300 group">
+            <div className="relative">
+              <textarea
+                id="message"
+                rows={5}
+                className="peer w-full px-4 py-3 bg-white/50 border border-sage/30 rounded-lg focus:outline-none focus:border-forest transition-colors resize-none"
+                placeholder=" "
+              ></textarea>
+              <label
+                htmlFor="message"
+                className="absolute left-4 top-3 text-text/60 transition-all duration-300 peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-forest peer-focus:bg-white px-1 font-paulugada"
+              >
                 Message
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full px-4 py-2 mt-1 bg-white/80 border border-sage/30 rounded-lg focus:outline-none focus:border-forest transition-colors duration-300 group-hover:text-forest"
-                ></textarea>
               </label>
             </div>
-            <button type="submit" className="btn-primary w-full">
+            <button
+              type="submit"
+              className="btn-primary w-full font-paulugada"
+            >
               Send Message
             </button>
           </form>

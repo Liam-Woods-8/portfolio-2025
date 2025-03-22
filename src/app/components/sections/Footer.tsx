@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="py-6 sm:py-8 bg-base border-t border-sage/30">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 font-paulugada">
             © {new Date().getFullYear()} Liam Woods. All rights reserved.
           </p>
           <div className="flex space-x-4 sm:space-x-6">

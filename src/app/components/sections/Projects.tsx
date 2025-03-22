@@ -54,18 +54,19 @@ export default function Projects() {
                 opacity: 0.5,
                 transition: 'all 0.6s ease-out',
                 marginTop: index === 0 ? '0' : '-4rem',
+                zIndex: index,
               }}
             >
               <div className="project-content">
                 <div className="project-text">
                   <h3 className="font-sao-torpes text-2xl sm:text-3xl md:text-4xl mb-4 sm:mb-6 text-gradient">{project.title}</h3>
-                  <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-text/90">{project.description}</p>
+                  <p className="text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed text-text/90 font-paulugada">{project.description}</p>
                   <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="px-3 py-1.5 bg-sage/40 text-text text-sm rounded-full">{tech}</span>
+                      <span key={i} className="px-3 py-1.5 bg-sage/40 text-text text-sm rounded-full font-paulugada">{tech}</span>
                     ))}
                   </div>
-                  <Link href={project.link} className="hover-reveal inline-block text-base sm:text-lg">
+                  <Link href={project.link} className="hover-reveal inline-block text-base sm:text-lg font-paulugada">
                     View Project
                   </Link>
                 </div>
