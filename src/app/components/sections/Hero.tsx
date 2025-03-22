@@ -31,16 +31,4 @@ export default function Hero() {
       </div>
     </section>
   );
-}
-
-.btn-primary {
-  @apply px-8 py-3 bg-forest text-white rounded-full font-palugada text-lg sm:text-xl 
-         hover:bg-sage/90 hover:text-white transition-all duration-300 
-         shadow-lg hover:shadow-xl transform hover:-translate-y-1;
-}
-
-.btn-secondary {
-  @apply px-8 py-3 bg-transparent border-2 border-forest text-forest rounded-full 
-         font-palugada text-lg sm:text-xl hover:bg-forest hover:text-white 
-         transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
 } 
