@@ -1,10 +1,7 @@
-'use client';
-
-import { useEffect } from 'react';
-import { initScrollReveal, initProjectCardEffects } from './utils/animations';
 import './globals.css'
 import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
+import AnimationProvider from './components/AnimationProvider'
 
 export const metadata: Metadata = {
   title: 'Liam Woods | Portfolio',
@@ -16,18 +13,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  useEffect(() => {
-    initScrollReveal();
-    initProjectCardEffects();
-  }, []);
-
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">
         <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
+        <AnimationProvider>
+          <main className="min-h-screen">
+            {children}
+          </main>
+        </AnimationProvider>
       </body>
     </html>
   );
