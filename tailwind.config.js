@@ -11,7 +11,7 @@ module.exports = {
         'base': '#FFFFFF',
         'text': '#333333',
         'forest': '#76c892',
-        'sage': '#76c892',
+        'sage': '#5ab37a',
         'mid-blue': '#76c892',
         cream: '#D4E7C5',
         border: '#E5E7EB',
@@ -25,6 +25,7 @@ module.exports = {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'shake': 'shake 0.5s ease-in-out',
+        'blink': 'blink 1s step-end infinite',
       },
       keyframes: {
         float: {
@@ -34,8 +35,11 @@ module.exports = {
         shake: {
           '0%, 100%': { transform: 'rotate(0deg)' },
           '25%': { transform: 'rotate(-5deg)' },
-          '50%': { transform: 'rotate(5deg)' },
-          '75%': { transform: 'rotate(-5deg)' },
+          '75%': { transform: 'rotate(5deg)' },
+        },
+        blink: {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0 },
         }
       },
       backgroundImage: {
