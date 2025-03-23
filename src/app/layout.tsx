@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import Navigation from '@/components/Navigation'
-import AnimationProvider from './components/AnimationProvider'
+import Navigation from '@/components/layout/Navigation'
+import AnimationProvider from '@/components/layout/AnimationProvider'
 
 export const metadata: Metadata = {
   title: 'Liam Woods | Portfolio',
