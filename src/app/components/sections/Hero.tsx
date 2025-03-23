@@ -24,7 +24,7 @@ export default function Hero() {
       <PageTransition />
       <section id="home" className="min-h-screen flex items-center justify-center relative px-4 py-16 sm:py-0">
         <div className="text-center space-y-6 sm:space-y-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-sao-torpes flex flex-col sm:flex-row items-center justify-center sm:space-x-4 text-forest">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-sao-torpes flex flex-col sm:flex-row items-center justify-center sm:space-x-4 text-forest">
             <span className="slide-in-left-name mb-2 sm:mb-0">Liam</span>
             <span className="slide-in-right-name">Woods</span>
           </h1>
