@@ -22,18 +22,18 @@ export default function Hero() {
   return (
     <>
       <PageTransition />
-      <section id="home" className="min-h-screen flex items-center justify-center relative px-4">
-        <div className="text-center space-y-4 sm:space-y-6">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-sao-torpes flex flex-col sm:flex-row items-center justify-center sm:space-x-4 text-forest">
+      <section id="home" className="min-h-screen flex items-center justify-center relative px-4 py-16 sm:py-0">
+        <div className="text-center space-y-6 sm:space-y-8">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-sao-torpes flex flex-col sm:flex-row items-center justify-center sm:space-x-4 text-forest">
             <span className="slide-in-left-name mb-2 sm:mb-0">Liam</span>
             <span className="slide-in-right-name">Woods</span>
           </h1>
-          <div className="space-y-2">
+          <div className="space-y-3 sm:space-y-4">
             <TypeWriter 
               words={ROLES}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-palugada text-gray-600 block"
+              className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-palugada text-gray-600 block min-h-[1.5em]"
             />
-            <p className="text-sm sm:text-base md:text-lg text-gray-500 font-palugada mt-4">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 font-palugada mt-2 sm:mt-4 px-4 sm:px-0">
               Crafting exceptional digital experiences with modern technologies
             </p>
           </div>

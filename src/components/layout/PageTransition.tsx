@@ -15,8 +15,8 @@ export default function PageTransition() {
         isLoading ? 'translate-y-0' : 'translate-y-full'
       }`}
     >
-      <div className="h-full flex items-center justify-center">
-        <div className="text-3xl font-sao-torpes text-forest animate-pulse">
+      <div className="h-full flex items-center justify-center px-4">
+        <div className="text-2xl sm:text-3xl font-sao-torpes text-forest animate-pulse">
           LW
         </div>
       </div>
