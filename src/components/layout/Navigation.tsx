@@ -35,7 +35,7 @@ export default function Navigation() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="text-2xl font-sao-torpes text-forest">LW</div>
-          <div className="space-x-8">
+          <div className="flex items-center space-x-8">
             {NAV_LINKS.map(({ href, label }) => (
               <a
                 key={href}
@@ -50,7 +50,6 @@ export default function Navigation() {
               </a>
             ))}
           </div>
-          <div className="w-8"></div> {/* Spacer for symmetry */}
         </div>
       </div>
     </nav>

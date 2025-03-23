@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative">
       <div className="text-center space-y-6">
-        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-sao-torpes flex items-center justify-center space-x-4">
+        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-sao-torpes flex items-center justify-center space-x-4 text-forest">
           <span className="slide-in-left-name">Liam</span>
           <span className="slide-in-right-name">Woods</span>
         </h1>
