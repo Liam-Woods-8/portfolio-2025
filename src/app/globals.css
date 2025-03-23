@@ -72,10 +72,10 @@
     right: 0;
     bottom: 0;
     background: 
-      linear-gradient(45deg, rgba(153, 188, 133, 0.03) 25%, transparent 25%),
-      linear-gradient(-45deg, rgba(153, 188, 133, 0.03) 25%, transparent 25%),
-      linear-gradient(45deg, transparent 75%, rgba(153, 188, 133, 0.03) 75%),
-      linear-gradient(-45deg, transparent 75%, rgba(153, 188, 133, 0.03) 75%);
+      linear-gradient(45deg, rgba(153, 188, 133, 0.12) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(153, 188, 133, 0.12) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, rgba(153, 188, 133, 0.12) 75%),
+      linear-gradient(-45deg, transparent 75%, rgba(153, 188, 133, 0.12) 75%);
     background-size: 100px 100px;
     background-position: 0 0, 0 50px, 50px -50px, -50px 0px;
     pointer-events: none;
