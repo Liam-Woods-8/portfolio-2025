@@ -443,6 +443,10 @@
   .project-card:hover::after {
     opacity: 1;
   }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full;
+  }
 }
 
 @layer components {
