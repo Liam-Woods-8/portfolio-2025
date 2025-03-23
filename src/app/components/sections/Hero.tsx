@@ -4,30 +4,15 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-start px-4 md:px-8 lg:px-16 relative overflow-hidden pt-24 md:pt-32">
-      <div className="geometric-pattern absolute inset-0 z-0"></div>
-      <div className="container mx-auto relative z-10">
-        <div className="flex flex-col items-start">
-          <div className="flex flex-col items-start mb-8">
-            <h1 className="slide-in-left text-7xl sm:text-8xl md:text-9xl lg:text-[14rem] font-sao-torpes mb-2 text-gradient">
-              Liam
-            </h1>
-            <h1 className="slide-in-right text-7xl sm:text-8xl md:text-9xl lg:text-[14rem] font-sao-torpes text-gradient">Woods</h1>
-          </div>
-          <div className="ml-4 sm:ml-8 md:ml-12">
-            <p className="text-lg sm:text-xl md:text-2xl mb-8 font-palugada max-w-2xl">
-              Full Stack Developer crafting elegant solutions through code
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <Link href="#projects" className="btn-primary">
-                View Projects
-              </Link>
-              <Link href="#contact" className="btn-secondary">
-                Contact
-              </Link>
-            </div>
-          </div>
-        </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative">
+      <div className="text-center space-y-6">
+        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-sao-torpes flex items-center justify-center space-x-4">
+          <span className="slide-in-left-name">Liam</span>
+          <span className="slide-in-right-name">Woods</span>
+        </h1>
+        <p className="text-xl sm:text-2xl md:text-3xl font-palugada text-gray-600">
+          Full Stack Developer
+        </p>
       </div>
     </section>
   );
