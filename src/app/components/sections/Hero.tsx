@@ -33,9 +33,6 @@ export default function Hero() {
               words={ROLES}
               className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-palugada text-gray-600 block min-h-[1.5em]"
             />
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-500 font-palugada mt-2 sm:mt-4 px-4 sm:px-0">
-              Crafting exceptional digital experiences with modern technologies
-            </p>
           </div>
         </div>
       </section>
