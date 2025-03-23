@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+import { initScrollReveal, initProjectCardEffects } from './utils/animations';
 import './globals.css'
 import type { Metadata } from 'next'
 import Navigation from '@/components/Navigation'
@@ -12,6 +16,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  useEffect(() => {
+    initScrollReveal();
+    initProjectCardEffects();
+  }, []);
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className="antialiased">

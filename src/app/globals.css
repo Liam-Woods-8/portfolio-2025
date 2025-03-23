@@ -336,6 +336,79 @@
   .project-image {
     @apply order-1 md:order-2;
   }
+
+  /* Scroll Reveal Animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Enhanced Button Hover Effects */
+  .btn-primary, .btn-secondary {
+    @apply relative overflow-hidden;
+    transition: all 0.4s ease;
+  }
+
+  .btn-primary::before, .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .btn-primary:hover::before, .btn-secondary:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Gradient Text Hover */
+  .hover-gradient-text {
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #76c892 0%, #5ab37a 50%, #76c892 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.4s ease;
+  }
+
+  .hover-gradient-text:hover {
+    background-position: right center;
+  }
+
+  /* Enhanced Project Card Hover */
+  .project-card {
+    @apply relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: all 0.4s ease;
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(118, 200, 146, 0.06),
+      transparent 40%
+    );
+  }
+
+  .project-card:hover::after {
+    opacity: 1;
+  }
 }
 
 @layer components {
@@ -358,10 +431,13 @@
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(118, 200, 146, 0.1);
-  box-shadow: 0 4px 6px -1px rgba(118, 200, 146, 0.1), 0 2px 4px -1px rgba(118, 200, 146, 0.06);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(118, 200, 146, 0.15);
+  box-shadow: 
+    0 4px 6px -1px rgba(118, 200, 146, 0.1),
+    0 2px 4px -1px rgba(118, 200, 146, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .project-card {
@@ -376,4 +452,9 @@
   transform: translateY(-12px);
   box-shadow: 0 10px 15px -3px rgba(118, 200, 146, 0.1), 0 4px 6px -2px rgba(118, 200, 146, 0.05);
   border-color: rgba(75, 75, 75, 0.3);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
