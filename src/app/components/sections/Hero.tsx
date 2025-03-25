@@ -6,9 +6,8 @@ import PageTransition from '@/components/layout/PageTransition';
 
 const ROLES = [
   'Full Stack Developer',
-  'React Specialist',
-  'UI/UX Enthusiast',
-  'Problem Solver'
+  'Problem Solver',
+  'Design Enthusiast'
 ];
 
 export default function Hero() {
